@@ -95,6 +95,7 @@
             this.Controls.Add(this.tbxName);
             this.Controls.Add(this.label1);
             this.Name = "ForgotPasswordForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ForgotPasswordForm";
             ((System.ComponentModel.ISupportInitialize)(this.pbxBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSend)).EndInit();

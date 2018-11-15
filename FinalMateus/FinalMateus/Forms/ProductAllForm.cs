@@ -1,4 +1,5 @@
 ﻿using FinalMateus.Classes;
+using FinalMateus.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -164,12 +165,12 @@ namespace FinalMateus.Forms
 
         private void pbxDelete_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxDelete.BackgroundImage = Resources.Delete;
         }
 
         private void pbxDelete_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxDelete.BackgroundImage = Resources.Delete_Close;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -180,7 +181,7 @@ namespace FinalMateus.Forms
         private void pbxClean1_Click(object sender, EventArgs e)
         {
             tbxSearch.Text = "";
-            ShowData();
+           
         }
 
         private void pbxClean1_MouseEnter(object sender, EventArgs e)

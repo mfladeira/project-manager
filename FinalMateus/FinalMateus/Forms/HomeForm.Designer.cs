@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.pbxLog = new System.Windows.Forms.PictureBox();
             this.pbxUserProfile = new System.Windows.Forms.PictureBox();
             this.pbxUser = new System.Windows.Forms.PictureBox();
@@ -41,6 +46,56 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBack)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(52, 124);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 19);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Categoria";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(272, 124);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 19);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Produto";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(171, 217);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 19);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Usuário";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(52, 323);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 19);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Perfil";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(286, 323);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(33, 19);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Log";
             // 
             // pbxLog
             // 
@@ -114,6 +169,7 @@
             // 
             // pbxBack
             // 
+            this.pbxBack.BackColor = System.Drawing.SystemColors.Highlight;
             this.pbxBack.BackgroundImage = global::FinalMateus.Properties.Resources.Back;
             this.pbxBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxBack.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -132,6 +188,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(399, 462);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pbxLog);
             this.Controls.Add(this.pbxUserProfile);
             this.Controls.Add(this.pbxUser);
@@ -148,6 +209,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxCategory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBack)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -159,5 +221,10 @@
         private System.Windows.Forms.PictureBox pbxUser;
         private System.Windows.Forms.PictureBox pbxUserProfile;
         private System.Windows.Forms.PictureBox pbxLog;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

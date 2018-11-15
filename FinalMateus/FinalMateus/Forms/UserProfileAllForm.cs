@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FinalMateus.Classes;
+using FinalMateus.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,7 +23,6 @@ namespace FinalMateus.Forms
             InitializeComponent();
             ShowData();
             ResizeDataGridView();
-
         }
 
         private void ShowData()
@@ -75,14 +76,23 @@ namespace FinalMateus.Forms
         {
             tbxSearch.Text = "";
         }
+        private void LittleSearch()
+        {
+            string optionForm = "UserProfileForm";
+            string optionString = "name";
+
+            Search search = new Search();
+            dgvUserProfile.DataSource = search.SearchFilter(connectionString, tbxSearch.Text, optionString, optionForm);
+        }
+
         private void pbxSearch_Click(object sender, EventArgs e)
         {
-
+            LittleSearch();
         }
 
         private void pbxClean_Click(object sender, EventArgs e)
         {
-
+            tbxSearch.Text = "";
         }
 
         private void pbxBack_Click(object sender, EventArgs e)
@@ -97,6 +107,7 @@ namespace FinalMateus.Forms
         {
             UserProfileDetailsForm updf = new UserProfileDetailsForm();
             updf.Show();
+            updf.FormClosed += (s, arg) => ShowData();
         }
 
         private void pbxEdit_Click(object sender, EventArgs e)
@@ -162,12 +173,20 @@ namespace FinalMateus.Forms
 
         private void pbxDelete_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxDelete.BackgroundImage = Resources.Delete;
         }
 
         private void pbxDelete_MouseLeave(object sender, EventArgs e)
         {
+            pbxDelete.BackgroundImage = Resources.Delete_Close;
+        }
 
+        private void tbxSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (tbxSearch.Text == "")
+            {
+                ShowData();
+            }
         }
     }
 }

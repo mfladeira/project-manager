@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalMateus.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,7 +40,7 @@ namespace FinalMateus.Forms
                 sqlConnect.Open();
 
                 SqlCommand cmd = new SqlCommand("SELECT * FROM LOG", sqlConnect);
-                // SqlDataReader reader = cmd.ExecuteReader();
+                
 
                 cmd.ExecuteNonQuery();
 
@@ -72,14 +73,22 @@ namespace FinalMateus.Forms
                 col.HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
             }
         }
+        private void LittleSearch()
+        {
+            string optionForm = "LogForm";
+            string optionString = "description";
+
+            Search search = new Search();
+            dgvLog.DataSource = search.SearchFilter(connectionString, tbxSearch.Text, optionString, optionForm);
+        }
         private void pbxSearch_Click(object sender, EventArgs e)
         {
-
+            LittleSearch();
         }
 
         private void pbxClean_Click(object sender, EventArgs e)
         {
-
+            tbxSearch.Text = "";
         }
 
         private void pbxSearch_MouseEnter(object sender, EventArgs e)
@@ -119,6 +128,13 @@ namespace FinalMateus.Forms
         {
 
         }
-       
+
+        private void tbxSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (tbxSearch.Text == "")
+            {
+                ShowData();
+            }
+        }
     }
 }

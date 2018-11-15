@@ -213,6 +213,10 @@
     <Content Include="Icons\Search.png" />
     <Content Include="Icons\User profile.png" />
     <Content Include="Icons\User.png" />
+    <None Include="Resources\BackColor.png" />
+    <None Include="Resources\Delete Close.png" />
+    <None Include="Resources\Delete.png" />
+    <None Include="Resources\User_Changed.png" />
     <None Include="Resources\ENVIAR.png" />
     <None Include="Resources\ENTRAR.png" />
     <None Include="Resources\Produtos-logo.png" />

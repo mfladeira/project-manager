@@ -55,6 +55,7 @@
             this.tbxSearch.Name = "tbxSearch";
             this.tbxSearch.Size = new System.Drawing.Size(375, 27);
             this.tbxSearch.TabIndex = 25;
+            this.tbxSearch.TextChanged += new System.EventHandler(this.tbxSearch_TextChanged);
             // 
             // label1
             // 
@@ -100,7 +101,7 @@
             // pbxDelete
             // 
             this.pbxDelete.BackColor = System.Drawing.Color.Transparent;
-            this.pbxDelete.BackgroundImage = global::FinalMateus.Properties.Resources.Delete;
+            this.pbxDelete.BackgroundImage = global::FinalMateus.Properties.Resources.Delete_Close;
             this.pbxDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbxDelete.Location = new System.Drawing.Point(537, 458);
@@ -158,7 +159,7 @@
             // dgvUser
             // 
             this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUser.Location = new System.Drawing.Point(40, 101);
+            this.dgvUser.Location = new System.Drawing.Point(36, 84);
             this.dgvUser.Name = "dgvUser";
             this.dgvUser.Size = new System.Drawing.Size(572, 324);
             this.dgvUser.TabIndex = 36;

@@ -1,4 +1,5 @@
 ﻿using FinalMateus.Classes;
+using FinalMateus.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,9 +22,8 @@ namespace FinalMateus.Forms
             InitializeComponent();
             ShowData();
             ResizeDataGridView();
-
         }
-        //Testando esta bagaça
+       
         private void ShowData()
         {
             SqlConnection sqlConnect = new SqlConnection(connectionString);
@@ -33,8 +33,6 @@ namespace FinalMateus.Forms
                 sqlConnect.Open();
 
                 SqlCommand cmd = new SqlCommand("SELECT * FROM CATEGORY", sqlConnect);
-
-                // SqlDataReader reader = cmd.ExecuteReader();
 
                 cmd.ExecuteNonQuery();
 
@@ -95,7 +93,7 @@ namespace FinalMateus.Forms
         private void pbxClean_Click(object sender, EventArgs e)
         {
             tbxSearch.Text = "";
-            ShowData();
+            
         }
 
         private void pbxBack_Click(object sender, EventArgs e)
@@ -121,21 +119,15 @@ namespace FinalMateus.Forms
 
         private void tbxSearch_TextChanged(object sender, EventArgs e)
         {
-        //    if (CanSearch())
-        //    {
-        //        littleSearch();
-        //    }
+
             if (tbxSearch.Text == "")
             {
                 ShowData();
             }
+           
         }
 
-        //async public bool CanSearch()
-        //{
-        
-        //}
-
+      
         private void pbxDelete_Click(object sender, EventArgs e)
         {
 
@@ -173,12 +165,12 @@ namespace FinalMateus.Forms
 
         private void pbxDelete_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxDelete.BackgroundImage = Resources.Delete;          
         }
 
         private void pbxDelete_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxDelete.BackgroundImage = Resources.Delete_Close;
         }
 
         private void pbxEdit_MouseEnter(object sender, EventArgs e)

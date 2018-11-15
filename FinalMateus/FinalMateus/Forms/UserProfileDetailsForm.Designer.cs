@@ -120,7 +120,7 @@
             // pbxDelete
             // 
             this.pbxDelete.BackColor = System.Drawing.Color.Transparent;
-            this.pbxDelete.BackgroundImage = global::FinalMateus.Properties.Resources.Delete;
+            this.pbxDelete.BackgroundImage = global::FinalMateus.Properties.Resources.Delete_Close;
             this.pbxDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbxDelete.Location = new System.Drawing.Point(302, 362);

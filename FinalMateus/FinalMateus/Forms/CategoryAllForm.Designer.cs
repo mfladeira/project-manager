@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryAllForm));
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pbxAdd = new System.Windows.Forms.PictureBox();
@@ -102,7 +103,7 @@
             // pbxDelete
             // 
             this.pbxDelete.BackColor = System.Drawing.Color.Transparent;
-            this.pbxDelete.BackgroundImage = global::FinalMateus.Properties.Resources.Delete;
+            this.pbxDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxDelete.BackgroundImage")));
             this.pbxDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbxDelete.Location = new System.Drawing.Point(531, 456);

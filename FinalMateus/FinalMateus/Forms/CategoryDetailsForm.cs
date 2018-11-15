@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalMateus.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -69,7 +70,7 @@ namespace FinalMateus.Forms
 
             finally
             {
-
+                ClearData();
                 sqlConnect.Close();
             }
         }
@@ -101,11 +102,13 @@ namespace FinalMateus.Forms
 
         private void pbxDelete_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxDelete.BackgroundImage = Resources.Delete;
+            
         }
 
         private void pbxDelete_MouseLeave(object sender, EventArgs e)
         {
+            pbxDelete.BackgroundImage = Resources.Delete_Close;
 
         }
     }

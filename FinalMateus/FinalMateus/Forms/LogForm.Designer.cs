@@ -78,6 +78,7 @@
             this.tbxSearch.Name = "tbxSearch";
             this.tbxSearch.Size = new System.Drawing.Size(375, 27);
             this.tbxSearch.TabIndex = 29;
+            this.tbxSearch.TextChanged += new System.EventHandler(this.tbxSearch_TextChanged);
             // 
             // label1
             // 
@@ -109,9 +110,9 @@
             // dgvLog
             // 
             this.dgvLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLog.Location = new System.Drawing.Point(99, 140);
+            this.dgvLog.Location = new System.Drawing.Point(58, 120);
             this.dgvLog.Name = "dgvLog";
-            this.dgvLog.Size = new System.Drawing.Size(376, 260);
+            this.dgvLog.Size = new System.Drawing.Size(501, 260);
             this.dgvLog.TabIndex = 34;
             // 
             // LogForm

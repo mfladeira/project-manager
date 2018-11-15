@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalMateus.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,12 +32,12 @@ namespace FinalMateus.Forms
 
         private void pbxBack_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxBack.BackgroundImage = Resources.BackColor;
         }
 
         private void pbxBack_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxBack.BackgroundImage = Resources.Back;
         }
 
         private void pbxCategory_Click(object sender, EventArgs e)
@@ -102,12 +103,12 @@ namespace FinalMateus.Forms
 
         private void pbxUser_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxUser.BackgroundImage = Resources.User_Changed;
         }
 
         private void pbxUser_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxUser.BackgroundImage = Resources.User;
         }
 
         private void pbxUserProfile_MouseEnter(object sender, EventArgs e)
@@ -129,5 +130,7 @@ namespace FinalMateus.Forms
         {
 
         }
+
+        
     }
 }
