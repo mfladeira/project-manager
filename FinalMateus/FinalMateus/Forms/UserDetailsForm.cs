@@ -138,14 +138,14 @@ namespace FinalMateus.Forms
             }
         }
 
-            private void pbxSave_MouseEnter(object sender, EventArgs e)
+        private void pbxSave_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxSave.BackgroundImage = Resources.Save_Changed;
         }
 
         private void pbxSave_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxSave.BackgroundImage = Resources.Save;
         }
 
         private void pbxBack_Click(object sender, EventArgs e)

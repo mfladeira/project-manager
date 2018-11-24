@@ -213,7 +213,11 @@
     <Content Include="Icons\Search.png" />
     <Content Include="Icons\User profile.png" />
     <Content Include="Icons\User.png" />
+    <None Include="Resources\CleanChanged.png" />
+    <None Include="Resources\SearchChanged.png" />
+    <None Include="Resources\AddChanged.png" />
     <None Include="Resources\BackColor.png" />
+    <None Include="Resources\Save Changed.png" />
     <None Include="Resources\Delete Close.png" />
     <None Include="Resources\Delete.png" />
     <None Include="Resources\User_Changed.png" />

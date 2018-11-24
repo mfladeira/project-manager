@@ -135,22 +135,22 @@ namespace FinalMateus.Forms
 
         private void pbxSearch_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxSearch.BackgroundImage = Resources.SearchChanged;
         }
 
         private void pbxSearch_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxSearch.BackgroundImage = Resources.Search;
         }
 
         private void pbxClean_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxClean.BackgroundImage = Resources.CleanChanged;
         }
 
         private void pbxClean_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxClean.BackgroundImage = Resources.Clean;
         }
 
         private void pbxBack_MouseEnter(object sender, EventArgs e)
@@ -185,18 +185,15 @@ namespace FinalMateus.Forms
 
         private void pbxAdd_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxAdd.BackgroundImage = Resources.AddChanged;
         }
 
         private void pbxAdd_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxAdd.BackgroundImage = Resources.Add;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
+       
 
       
     }

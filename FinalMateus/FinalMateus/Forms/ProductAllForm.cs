@@ -145,12 +145,12 @@ namespace FinalMateus.Forms
 
         private void pbxAdd_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxAdd.BackgroundImage = Resources.AddChanged;
         }
 
         private void pbxAdd_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxAdd.BackgroundImage = Resources.Add;
         }
 
         private void pbxEdit_MouseEnter(object sender, EventArgs e)
