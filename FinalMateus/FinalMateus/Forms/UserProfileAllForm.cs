@@ -112,7 +112,8 @@ namespace FinalMateus.Forms
 
         private void pbxEdit_Click(object sender, EventArgs e)
         {
-            UserProfileDetailsForm updf = new UserProfileDetailsForm();
+            int idUserProfile = Int32.Parse(dgvUserProfile.SelectedRows[0].Cells[0].Value.ToString());
+            UserProfileDetailsForm updf = new UserProfileDetailsForm(idUserProfile);
             updf.Show();
         }
 

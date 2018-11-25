@@ -30,6 +30,62 @@ namespace FinalMateus.Forms
             cmbProfile.DisplayMember = "NAME";
             LoadComboBox();
         }
+
+        public UserDetailsForm(int idUser)
+        {
+
+            InitializeComponent();
+
+            lblId.Text = idUser.ToString(); //-------
+
+            SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+            if (!string.IsNullOrEmpty(lblId.Text))
+            {
+                try
+                {
+                    //Conectar
+                    sqlConnect.Open();
+
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM [USER] WHERE ID = @id", sqlConnect);
+                    //SqlCommand cmd = new SqlCommand("SELECT * FROM CATEGORY WHERE ID = " + idCategory.ToString(), sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@id", idUser));
+
+                    User user = new User(); //------
+
+                    using (SqlDataReader reader = cmd.ExecuteReader()) //-----
+                    {
+                        while (reader.Read())
+                        {
+                            user.Id = Int32.Parse(reader["ID"].ToString());
+                            user.Name = reader["NAME"].ToString();
+                            user.Active = bool.Parse(reader["ACTIVE"].ToString());
+                            user.Email = reader["Email"].ToString();
+                            user.Password = reader["Password"].ToString();
+                        }
+                    }
+
+                    tbxName.Text = user.Name;
+                    cbxActive.Checked = user.Active;
+                    tbxEmail.Text = user.Email;
+                    tbxPassword.Text = user.Password;
+
+
+                }
+                catch (Exception EX)
+                {
+                    //Tratar exce??es
+                    throw;
+                }
+                finally
+                {
+                    //Fechar
+                    sqlConnect.Close();
+                }
+            }
+        }
+
         void GetData()
         {
             name = tbxName.Text;

@@ -39,6 +39,7 @@
             this.pbxDelete = new System.Windows.Forms.PictureBox();
             this.cbxActive = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDelete)).BeginInit();
@@ -184,12 +185,22 @@
             this.label7.TabIndex = 20;
             this.label7.Text = "Ativo:";
             // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(12, 9);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(0, 13);
+            this.lblId.TabIndex = 22;
+            this.lblId.Visible = false;
+            // 
             // ProductDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(399, 462);
+            this.Controls.Add(this.lblId);
             this.Controls.Add(this.cbxActive);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.pbxDelete);
@@ -225,5 +236,6 @@
         private System.Windows.Forms.PictureBox pbxDelete;
         private System.Windows.Forms.CheckBox cbxActive;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblId;
     }
 }

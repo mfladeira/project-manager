@@ -1,4 +1,5 @@
-﻿using FinalMateus.Properties;
+﻿using FinalMateus.Classes;
+using FinalMateus.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,58 @@ namespace FinalMateus.Forms
         {
             InitializeComponent();
         }
+
+        public UserProfileDetailsForm(int idCategory)
+        {
+
+            InitializeComponent();
+
+            lblId.Text = idCategory.ToString(); //-------
+
+            SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+            if (!string.IsNullOrEmpty(lblId.Text))
+            {
+                try
+                {
+                    //Conectar
+                    sqlConnect.Open();
+
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM USER_PROFILE WHERE ID = @id", sqlConnect);
+                    //SqlCommand cmd = new SqlCommand("SELECT * FROM CATEGORY WHERE ID = " + idCategory.ToString(), sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@id", idCategory));
+
+                    UserProfile userprofile = new UserProfile(); //------
+
+                    using (SqlDataReader reader = cmd.ExecuteReader()) //-----
+                    {
+                        while (reader.Read())
+                        {
+                            userprofile.Id = Int32.Parse(reader["ID"].ToString());
+                            userprofile.Name = reader["NAME"].ToString();
+                            userprofile.Active = bool.Parse(reader["ACTIVE"].ToString());
+                        }
+                    }
+
+                    tbxName.Text = userprofile.Name;
+                    cbxActive.Checked = userprofile.Active;
+
+
+                }
+                catch (Exception EX)
+                {
+                    //Tratar exce??es
+                    throw;
+                }
+                finally
+                {
+                    //Fechar
+                    sqlConnect.Close();
+                }
+            }
+        }
+
         void GetData()
         {
             name = tbxName.Text;

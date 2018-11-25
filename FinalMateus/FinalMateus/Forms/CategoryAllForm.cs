@@ -113,8 +113,9 @@ namespace FinalMateus.Forms
 
         private void pbxEdit_Click(object sender, EventArgs e)
         {
-            CategoryDetailsForm cdf = new CategoryDetailsForm();
-            cdf.Show();
+            int idCategory = Int32.Parse(dgvCategory.SelectedRows[0].Cells[0].Value.ToString());
+            CategoryDetailsForm categoryDetails = new CategoryDetailsForm(idCategory);
+            categoryDetails.Show();
         }
 
         private void tbxSearch_TextChanged(object sender, EventArgs e)
@@ -130,7 +131,34 @@ namespace FinalMateus.Forms
       
         private void pbxDelete_Click(object sender, EventArgs e)
         {
+            int idCategory = Int32.Parse(dgvCategory.SelectedRows[0].Cells[0].Value.ToString());
 
+            SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+            try
+            {
+                sqlConnect.Open();
+                string sql = "UPDATE CATEGORY SET ACTIVE = @active WHERE ID = @id";
+
+                SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                cmd.Parameters.Add(new SqlParameter("@id", idCategory));
+                cmd.Parameters.Add(new SqlParameter("@active", false));
+
+                cmd.ExecuteNonQuery();
+                ShowData();
+                MessageBox.Show("Categoria inativa!");
+
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Erro ao editar este categoria!" + "\n\n" + Ex.Message);
+                throw;
+            }
+            finally
+            {
+                sqlConnect.Close();
+            }
         }
 
         private void pbxSearch_MouseEnter(object sender, EventArgs e)
