@@ -78,23 +78,24 @@ namespace FinalMateus.Forms
                 col.HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
             }
         }
+
         void GetData()
         {
             search = tbxSearch.Text;
         }
+
         void ClearData()
         {
             tbxSearch.Text = "";
         }
 
+        #region buttons
         private void pbxSearch_Click(object sender, EventArgs e)
         {
             LittleSearch();
            
         }
-
-     
-
+    
         private void pbxBack_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -147,7 +148,9 @@ namespace FinalMateus.Forms
                 sqlConnect.Close();
             }
         }
+        #endregion
 
+        #region images
         private void pbxSearch_MouseEnter(object sender, EventArgs e)
         {
 
@@ -157,8 +160,6 @@ namespace FinalMateus.Forms
         {
 
         }
-
-      
 
         private void pbxBack_MouseEnter(object sender, EventArgs e)
         {
@@ -228,5 +229,6 @@ namespace FinalMateus.Forms
                 ShowData();
             }
         }
+        #endregion
     }
 }

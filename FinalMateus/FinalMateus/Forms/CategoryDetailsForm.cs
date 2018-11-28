@@ -80,11 +80,13 @@ namespace FinalMateus.Forms
             name = tbxName.Text;
             active = cbxActive.Checked ? true : false;                             
         }
+
         void ClearData()
         {
             tbxName.Text = "";
             cbxActive.Checked = false;
         }
+
         private void pbxBack_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -160,6 +162,7 @@ namespace FinalMateus.Forms
             }
         }
 
+        #region images
         private void pbxBack_MouseEnter(object sender, EventArgs e)
         {
 
@@ -191,5 +194,6 @@ namespace FinalMateus.Forms
             pbxDelete.BackgroundImage = Resources.Delete_Close;
 
         }
+        #endregion
     }
 }

@@ -23,7 +23,7 @@ namespace FinalMateus.Forms
             ShowData();
             ResizeDataGridView();
         }
-       
+        #region functions
         private void ShowData()
         {
             SqlConnection sqlConnect = new SqlConnection(connectionString);
@@ -58,7 +58,7 @@ namespace FinalMateus.Forms
             dgvCategory.Columns["ID"].Visible = false;
             dgvCategory.Columns["NAME"].HeaderText = "Nome";
             dgvCategory.Columns["ACTIVE"].HeaderText = "Ativo";
-           
+
 
             foreach (DataGridViewColumn col in dgvCategory.Columns)
             {
@@ -75,7 +75,6 @@ namespace FinalMateus.Forms
             Search search = new Search();
             dgvCategory.DataSource = search.SearchFilter(connectionString, tbxSearch.Text, optionString, optionForm);
         }
-
         void GetData()
         {
             search = tbxSearch.Text;
@@ -84,7 +83,8 @@ namespace FinalMateus.Forms
         {
             tbxSearch.Text = "";
         }
-
+        #endregion
+        #region buttons
         private void pbxSearch_Click(object sender, EventArgs e)
         {
             LittleSearch();
@@ -93,7 +93,7 @@ namespace FinalMateus.Forms
         private void pbxClean_Click(object sender, EventArgs e)
         {
             tbxSearch.Text = "";
-            
+
         }
 
         private void pbxBack_Click(object sender, EventArgs e)
@@ -118,17 +118,6 @@ namespace FinalMateus.Forms
             categoryDetails.Show();
         }
 
-        private void tbxSearch_TextChanged(object sender, EventArgs e)
-        {
-
-            if (tbxSearch.Text == "")
-            {
-                ShowData();
-            }
-           
-        }
-
-      
         private void pbxDelete_Click(object sender, EventArgs e)
         {
             int idCategory = Int32.Parse(dgvCategory.SelectedRows[0].Cells[0].Value.ToString());
@@ -158,6 +147,15 @@ namespace FinalMateus.Forms
             finally
             {
                 sqlConnect.Close();
+            }
+        }
+        #endregion
+        #region images
+        private void tbxSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (tbxSearch.Text == "")
+            {
+                ShowData();
             }
         }
 
@@ -193,7 +191,7 @@ namespace FinalMateus.Forms
 
         private void pbxDelete_MouseEnter(object sender, EventArgs e)
         {
-            pbxDelete.BackgroundImage = Resources.Delete;          
+            pbxDelete.BackgroundImage = Resources.Delete;
         }
 
         private void pbxDelete_MouseLeave(object sender, EventArgs e)
@@ -220,9 +218,6 @@ namespace FinalMateus.Forms
         {
             pbxAdd.BackgroundImage = Resources.Add;
         }
-
-       
-
-      
+        #endregion
     }
 }
