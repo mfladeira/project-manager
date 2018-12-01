@@ -17,13 +17,17 @@ namespace FinalMateus.Forms
     {
         string search = "";
         string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
+
         public CategoryAllForm()
         {
             InitializeComponent();
             ShowData();
             ResizeDataGridView();
         }
+
+
         #region functions
+
         private void ShowData()
         {
             SqlConnection sqlConnect = new SqlConnection(connectionString);
@@ -75,10 +79,12 @@ namespace FinalMateus.Forms
             Search search = new Search();
             dgvCategory.DataSource = search.SearchFilter(connectionString, tbxSearch.Text, optionString, optionForm);
         }
+
         void GetData()
         {
             search = tbxSearch.Text;
         }
+
         void ClearData()
         {
             tbxSearch.Text = "";

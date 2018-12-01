@@ -108,8 +108,35 @@ namespace FinalMateus.Forms
 
         private void pbxDelete_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(lblId.Text)) //-----
+            {
+                SqlConnection sqlConnect = new SqlConnection(connectionString);
 
-        }   
+                try
+                {
+                    sqlConnect.Open();
+                    string sql = "UPDATE [USER] SET ACTIVE = @active WHERE ID = @id";
+
+                    SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@id", lblId.Text));
+                    cmd.Parameters.Add(new SqlParameter("@active", false));
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("usuario inativo!");
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show("Erro ao desativar usuario!" + "\n\n" + Ex.Message);
+                    throw;
+                }
+                finally
+                {
+                    sqlConnect.Close();
+                }
+            }
+        }
 
         private void pbxDelete_MouseEnter(object sender, EventArgs e)
         {

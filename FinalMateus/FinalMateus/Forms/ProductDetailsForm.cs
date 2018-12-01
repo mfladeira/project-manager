@@ -21,6 +21,7 @@ namespace FinalMateus.Forms
         string category = "";
         List<Category> categories = new List<Category>();
         string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
+
         public ProductDetailsForm()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace FinalMateus.Forms
             LoadComboBox();
  
         }
+
         public ProductDetailsForm(int idProduct)
         {
 
@@ -168,7 +170,34 @@ namespace FinalMateus.Forms
         }
         private void pbxDelete_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(lblId.Text)) //-----
+            {
+                SqlConnection sqlConnect = new SqlConnection(connectionString);
 
+                try
+                {
+                    sqlConnect.Open();
+                    string sql = "UPDATE PRODUCT SET ACTIVE = @active WHERE ID = @id";
+
+                    SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@id", lblId.Text));
+                    cmd.Parameters.Add(new SqlParameter("@active", false));
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("produto inativa!");
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show("Erro ao desativar este produto!" + "\n\n" + Ex.Message);
+                    throw;
+                }
+                finally
+                {
+                    sqlConnect.Close();
+                }
+            }
         }
 
         private void pbxBack_MouseEnter(object sender, EventArgs e)
