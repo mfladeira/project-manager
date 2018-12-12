@@ -15,12 +15,17 @@ namespace FinalMateus.Forms
     {
         string name = "";
         string password = "";
-        
+
 
         public LoginForm()
         {
             InitializeComponent();
-            
+            //if (user.UserProfile.Name != "Gerente")
+            //{
+            //    //n pode acessar user user profile log
+            //    pbxSignIn.Enabled = false;
+            //}
+
         }
         void GetData()
         {
@@ -39,7 +44,7 @@ namespace FinalMateus.Forms
             fpf.Show();
         }
 
-        private void pbxSignIn_Click(object sender, EventArgs e) 
+        private void pbxSignIn_Click(object sender, EventArgs e)
         {
             this.Hide();
             HomeForm hm = new HomeForm();
@@ -58,6 +63,6 @@ namespace FinalMateus.Forms
 
         }
 
-       
+
     }
 }

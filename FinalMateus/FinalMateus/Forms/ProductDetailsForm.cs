@@ -105,37 +105,76 @@ namespace FinalMateus.Forms
 
         private void pbxSave_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlConnect = new SqlConnection(connectionString);
-            try
+            if (string.IsNullOrEmpty(lblId.Text))
             {
-                GetData();
-                Category c = (Category)cmbCategory.SelectedItem;
-                Product p = new Product(name, price, c, active);
-                sqlConnect.Open();
-                string sql = "INSERT INTO PRODUCT(NAME, PRICE, ACTIVE, FK_PRODUCT) VALUES (@name, @price, @active, @category)";
+                SqlConnection sqlConnect = new SqlConnection(connectionString);
+                try
+                {
+                    GetData();
+                    Category c = (Category)cmbCategory.SelectedItem;
+                    Product p = new Product(name, price, c, active);
+                    sqlConnect.Open();
+                    string sql = "INSERT INTO PRODUCT(NAME, PRICE, ACTIVE, FK_PRODUCT) VALUES (@name, @price, @active, @category)";
 
-                SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+                    SqlCommand cmd = new SqlCommand(sql, sqlConnect);
 
-                cmd.Parameters.Add(new SqlParameter("@name", p.Name));
-                cmd.Parameters.Add(new SqlParameter("@price", p.Price));
-                cmd.Parameters.Add(new SqlParameter("@active", p.Active));
-                cmd.Parameters.Add(new SqlParameter("@category", p.Category.Id));
-                cmd.ExecuteNonQuery();
+                    cmd.Parameters.Add(new SqlParameter("@name", p.Name));
+                    cmd.Parameters.Add(new SqlParameter("@price", p.Price));
+                    cmd.Parameters.Add(new SqlParameter("@active", p.Active));
+                    cmd.Parameters.Add(new SqlParameter("@category", p.Category.Id));
+                    cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Adicionado com sucesso!");
-              
+                    MessageBox.Show("Adicionado com sucesso!");
 
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao adicionar produto!" + ex.Message);
+                    ClearData();
+                }
+                finally
+                {
+                    ClearData();
+                    sqlConnect.Close();
+
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Erro ao adicionar categoria!" + ex.Message);
-                ClearData();
-            }
-            finally
-            {
-                ClearData();
-                sqlConnect.Close();
 
+                SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+                try
+                {
+                    GetData();
+                    Category c = (Category)cmbCategory.SelectedItem;
+                    sqlConnect.Open();
+
+                    string sql = "INSERT INTO PRODUCT(NAME, PRICE, ACTIVE, FK_PRODUCT) VALUES (@name, @price, @active, @category) WHERE ID = @id";
+
+                    SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@name", name));
+                    cmd.Parameters.Add(new SqlParameter("@price", price));
+                    cmd.Parameters.Add(new SqlParameter("@active", active));
+                    cmd.Parameters.Add(new SqlParameter("@category", c.Id));
+                    cmd.Parameters.Add(new SqlParameter("@id", lblId.Text));
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Altereções salvas com sucesso!");
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show("Erro ao editar este produto!" + "\n\n" + Ex.Message);
+                    throw;
+                }
+                finally
+                {
+                    sqlConnect.Close();
+                    this.Close();
+                }
             }
         }
 

@@ -66,6 +66,7 @@
     <Compile Include="Classes\Product.cs" />
     <Compile Include="Classes\Search.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="Classes\UserHelper.cs" />
     <Compile Include="Classes\UserProfile.cs" />
     <Compile Include="Forms\CategoryAllForm.cs">
       <SubType>Form</SubType>

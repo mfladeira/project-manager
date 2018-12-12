@@ -150,45 +150,85 @@ namespace FinalMateus.Forms
 
         private void pbxSave_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlConnect = new SqlConnection(connectionString);
-            try
+            if (string.IsNullOrEmpty(lblId.Text))
             {
-                GetData();
-                UserProfile up = (UserProfile)cmbProfile.SelectedItem;
-                User u = new User(name, email, password, up, active);
-                sqlConnect.Open();
-                string sql = "INSERT INTO [USER](NAME, EMAIL, PASSWORD, FK_USERPROFILE, ACTIVE) VALUES (@name, @email, @password, @profile, @active)";
-
-                SqlCommand cmd = new SqlCommand(sql, sqlConnect);
-
-                cmd.Parameters.Add(new SqlParameter("@name",u.Name));
-                cmd.Parameters.Add(new SqlParameter("@email",u.Email));
-                cmd.Parameters.Add(new SqlParameter("@password",u.Password));
-                //cmd.Parameters.Add(new SqlParameter("@confirmpassword",u.ConfirmPassword));
-                cmd.Parameters.Add(new SqlParameter("@profile",u.UserProfile.Id));
-                cmd.Parameters.Add(new SqlParameter("@active", active));
-
-                if (name != "")
+                SqlConnection sqlConnect = new SqlConnection(connectionString);
+                try
                 {
+                    GetData();
+                    UserProfile up = (UserProfile)cmbProfile.SelectedItem;
+                    User u = new User(name, email, password, up, active);
+                    sqlConnect.Open();
+                    string sql = "INSERT INTO [USER](NAME, EMAIL, PASSWORD, FK_USERPROFILE, ACTIVE) VALUES (@name, @email, @password, @profile, @active)";
+
+                    SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@name", u.Name));
+                    cmd.Parameters.Add(new SqlParameter("@email", u.Email));
+                    cmd.Parameters.Add(new SqlParameter("@password", u.Password));
+                    //cmd.Parameters.Add(new SqlParameter("@confirmpassword",u.ConfirmPassword));
+                    cmd.Parameters.Add(new SqlParameter("@profile", u.UserProfile.Id));
+                    cmd.Parameters.Add(new SqlParameter("@active", active));
+
+                    if (name != "")
+                    {
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Adicionado com sucesso!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao adicionar categoria, nome em branco!");
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao adicionar categoria!" + ex.Message);
+                    ClearData();
+                }
+
+                finally
+                {
+                    ClearData();
+                    sqlConnect.Close();
+                }
+            }
+            else
+            {
+                SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+                try
+                {
+                    GetData();
+                    UserProfile up = (UserProfile)cmbProfile.SelectedItem;
+                    sqlConnect.Open();
+
+                    string sql = "INSERT INTO [USER](NAME, EMAIL, PASSWORD, FK_USERPROFILE, ACTIVE) VALUES (@name, @email, @password, @profile, @active) WHERE ID = @id";
+
+                    SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@name", name));
+                    cmd.Parameters.Add(new SqlParameter("@email", email));
+                    cmd.Parameters.Add(new SqlParameter("@password", password));
+                    //cmd.Parameters.Add(new SqlParameter("@confirmpassword",u.ConfirmPassword));
+                    cmd.Parameters.Add(new SqlParameter("@profile", up.Id));
+                    cmd.Parameters.Add(new SqlParameter("@active", active));
+                    cmd.Parameters.Add(new SqlParameter("@id", lblId.Text));
+
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Adicionado com sucesso!");
+
+                    MessageBox.Show("Altereções salvas com sucesso!");
                 }
-                else
+                catch (Exception Ex)
                 {
-                    MessageBox.Show("Erro ao adicionar categoria, nome em branco!");
+                    MessageBox.Show("Erro ao editar este produto!" + "\n\n" + Ex.Message);
+                    throw;
                 }
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao adicionar categoria!" + ex.Message);
-                ClearData();
-            }
-
-            finally
-            {
-                ClearData();
-                sqlConnect.Close();
+                finally
+                {
+                    sqlConnect.Close();
+                    this.Close();
+                }
             }
         }
         void LoadComboBox()

@@ -94,39 +94,75 @@ namespace FinalMateus.Forms
 
         private void pbxSave_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlConnect = new SqlConnection(connectionString);
-            try
+            if (string.IsNullOrEmpty(lblId.Text))
             {
-                GetData();
-
-                sqlConnect.Open();
-                string sql = "INSERT INTO CATEGORY(NAME, ACTIVE) VALUES (@name, @active)";
-
-                SqlCommand cmd = new SqlCommand(sql, sqlConnect);
-
-                cmd.Parameters.Add(new SqlParameter("@name", name));
-                cmd.Parameters.Add(new SqlParameter("@active", active));
-                if(name != "")
+                SqlConnection sqlConnect = new SqlConnection(connectionString);
+                try
                 {
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Adicionado com sucesso!");
+                    GetData();
+
+                    sqlConnect.Open();
+                    string sql = "INSERT INTO CATEGORY(NAME, ACTIVE) VALUES (@name, @active)";
+
+                    SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@name", name));
+                    cmd.Parameters.Add(new SqlParameter("@active", active));
+                    if (name != "")
+                    {
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Adicionado com sucesso!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao adicionar categoria, nome em branco!");
+                    }
                 }
-                else
+
+                catch (Exception ex)
                 {
-                       MessageBox.Show("Erro ao adicionar categoria, nome em branco!");
-                }   
-            }
+                    MessageBox.Show("Erro ao adicionar categoria!" + ex.Message);
+                    ClearData();
+                }
 
-            catch (Exception ex)
-            {                         
-                MessageBox.Show("Erro ao adicionar categoria!" + ex.Message);
-                ClearData();
+                finally
+                {
+                    ClearData();
+                    sqlConnect.Close();
+                }
             }
-
-            finally
+            else
             {
-                ClearData();
-                sqlConnect.Close();
+                SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+                try
+                {
+                    GetData();
+
+                    sqlConnect.Open();
+
+                    string sql = "UPDATE CATEGORY(NAME, ACTIVE) VALUES (@name, @active) WHERE ID = @id";
+
+                    SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@name", name));
+                    cmd.Parameters.Add(new SqlParameter("@active", active));
+                    cmd.Parameters.Add(new SqlParameter("@active", lblId.Text));
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Altereções salvas com sucesso!");
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show("Erro ao editar esta categoria!" + "\n\n" + Ex.Message);
+                    throw;
+                }
+                finally
+                {
+                    sqlConnect.Close();
+                    this.Close();
+                }
             }
         }
 
