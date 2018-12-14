@@ -65,9 +65,9 @@ namespace FinalMateus.Forms
         private void ResizeDataGridView()
         {
             dgvProduct.Columns["ID"].Visible = false;
-            dgvProduct.Columns["NAME"].HeaderText = "Nome";
+            dgvProduct.Columns["NAME"].HeaderText = "Nome";  
+            dgvProduct.Columns["PRICE"].HeaderText = "Preço";
             dgvProduct.Columns["ACTIVE"].HeaderText = "Ativo";
-            dgvProduct.Columns["PRICE"].HeaderText = "Preço";               
             dgvProduct.Columns["ACTIVE"].DisplayIndex = 4;
             dgvProduct.Columns["NAME1"].HeaderText = "Categoria";
             dgvProduct.Columns["NAME1"].DisplayIndex = 3;
@@ -106,7 +106,7 @@ namespace FinalMateus.Forms
         {
             ProductDetailsForm pdf = new ProductDetailsForm();
             pdf.Show();
-            pdf.FormClosed += (s, arg) => ShowData();
+            this.Hide();
         }
 
         private void pbxEdit_Click(object sender, EventArgs e)
@@ -114,6 +114,7 @@ namespace FinalMateus.Forms
             int idProduct = Int32.Parse(dgvProduct.SelectedRows[0].Cells[0].Value.ToString());
             ProductDetailsForm pdf = new ProductDetailsForm(idProduct);
             pdf.Show();
+            this.Close();
         }
 
         private void pbxDelete_Click(object sender, EventArgs e)
@@ -133,8 +134,10 @@ namespace FinalMateus.Forms
                 cmd.Parameters.Add(new SqlParameter("@active", false));
 
                 cmd.ExecuteNonQuery();
-
+                ShowData();
                 MessageBox.Show("Produto inativo!");
+                Log.SaveLog("Produto Desativado", DateTime.Now, "Excluir");
+
             }
             catch (Exception Ex)
             {

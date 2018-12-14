@@ -16,14 +16,14 @@ namespace FinalMateus.Forms
     {
         string name = "";
         string password = "";
-        User user;
-        //string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
-
+        User userAuxx;
+  
         public LoginForm()
         {
             InitializeComponent();
 
         }
+
         private bool CheckLogin(string password, string name)
         {
             User user = UserHelper.SelectByName(name);
@@ -32,7 +32,7 @@ namespace FinalMateus.Forms
             {
                 if (UserHelper.Hash(password) == user.Password)
                 {
-                   
+                    userAuxx = user;
                     return true;
                 }
             }
@@ -64,9 +64,10 @@ namespace FinalMateus.Forms
                 GetData();
                 if (CheckLogin(password, name))
                 {
-                    HomeForm hf = new HomeForm(user);
-                    hf.Show();
                     this.Hide();
+                    HomeForm hf = new HomeForm(userAuxx);                
+                    hf.FormClosed +=(s,arg) =>this.Close();
+                    hf.Show();
                 }
                 else
                 {

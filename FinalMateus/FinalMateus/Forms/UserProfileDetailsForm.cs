@@ -110,12 +110,12 @@ namespace FinalMateus.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Adicionado com sucesso!");
-
+                    Log.SaveLog("Perfil Adicionado", DateTime.Now, "Adição");
 
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Erro ao adicionar categoria!" + ex.Message);
+                    MessageBox.Show("Erro ao adicionar perfil!" + ex.Message);
                     ClearData();
                 }
                 finally
@@ -146,6 +146,7 @@ namespace FinalMateus.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Altereções salvas com sucesso!");
+                    Log.SaveLog("Perfil Editado", DateTime.Now, "Edição");
                 }
                 catch (Exception Ex)
                 {
@@ -178,11 +179,13 @@ namespace FinalMateus.Forms
 
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("usuario inativo!");
+                    MessageBox.Show("Perfil inativo!");
+                    Log.SaveLog("Perfil Desativadao", DateTime.Now, "Excluir");
+
                 }
                 catch (Exception Ex)
                 {
-                    MessageBox.Show("Erro ao desativar este usuario!" + "\n\n" + Ex.Message);
+                    MessageBox.Show("Erro ao desativar este perfil!" + "\n\n" + Ex.Message);
                     throw;
                 }
                 finally

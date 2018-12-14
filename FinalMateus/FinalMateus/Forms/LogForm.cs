@@ -113,7 +113,7 @@ namespace FinalMateus.Forms
 
         private void pbxBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             
         }
 

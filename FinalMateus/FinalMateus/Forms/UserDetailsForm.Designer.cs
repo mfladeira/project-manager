@@ -35,8 +35,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbxConfirmPassword = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbProfile = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -117,35 +115,13 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Senha:";
             // 
-            // tbxConfirmPassword
-            // 
-            this.tbxConfirmPassword.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxConfirmPassword.Location = new System.Drawing.Point(9, 228);
-            this.tbxConfirmPassword.Margin = new System.Windows.Forms.Padding(4);
-            this.tbxConfirmPassword.Name = "tbxConfirmPassword";
-            this.tbxConfirmPassword.Size = new System.Drawing.Size(375, 27);
-            this.tbxConfirmPassword.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label4.Location = new System.Drawing.Point(5, 201);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 19);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Confirme a senha:";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label5.Location = new System.Drawing.Point(10, 263);
+            this.label5.Location = new System.Drawing.Point(13, 234);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 19);
@@ -156,7 +132,7 @@
             // 
             this.cmbProfile.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbProfile.FormattingEnabled = true;
-            this.cmbProfile.Location = new System.Drawing.Point(9, 291);
+            this.cmbProfile.Location = new System.Drawing.Point(12, 262);
             this.cmbProfile.Margin = new System.Windows.Forms.Padding(4);
             this.cmbProfile.Name = "cmbProfile";
             this.cmbProfile.Size = new System.Drawing.Size(375, 27);
@@ -256,8 +232,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cmbProfile);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.tbxConfirmPassword);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.tbxPassword);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbxEmail);
@@ -285,8 +259,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbxPassword;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbxConfirmPassword;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbProfile;
         private System.Windows.Forms.Label label7;

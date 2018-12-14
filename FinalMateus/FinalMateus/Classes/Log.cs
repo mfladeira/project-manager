@@ -1,5 +1,6 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -85,9 +86,24 @@ namespace FinalMateus.Classes
             this.Type = type;
         }
 
-        //public int Id { get => id; set => id = value; }
-        //public string Description { get => description; set => description = value; }
-        //public DateTime Date { get => date; set => date = value; }
-        //public string Type { get => type; set => type = value; }
+        public static void SaveLog(string description, DateTime date, string type)
+        {
+            string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
+
+            SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+            
+            sqlConnect.Open();
+            string sql = "INSERT INTO LOG (DESCRIPTION, DATE, TYPE) VALUES (@description, @date, @type)";
+
+            SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+            cmd.Parameters.Add(new SqlParameter("@description", description));
+            cmd.Parameters.Add(new SqlParameter("@date", date));
+            cmd.Parameters.Add(new SqlParameter("@type", type));
+
+            cmd.ExecuteNonQuery();
+
+        }
     }
 }

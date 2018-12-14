@@ -142,11 +142,11 @@ namespace FinalMateus.Forms
                 cmd.ExecuteNonQuery();
                 ShowData();
                 MessageBox.Show("Categoria inativa!");
-
+                Log.SaveLog("Categoria Desativada", DateTime.Now, "Excluir");
             }
             catch (Exception Ex)
             {
-                MessageBox.Show("Erro ao editar este categoria!" + "\n\n" + Ex.Message);
+                MessageBox.Show("Erro ao editar esta categoria!" + "\n\n" + Ex.Message);
                 throw;
             }
             finally

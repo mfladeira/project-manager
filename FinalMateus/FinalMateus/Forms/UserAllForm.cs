@@ -135,7 +135,8 @@ namespace FinalMateus.Forms
 
                 cmd.ExecuteNonQuery();
                 ShowData();
-                MessageBox.Show("usuario inativo!");
+                MessageBox.Show("Usuario inativo!");
+                Log.SaveLog("Usuario Desativado", DateTime.Now, "Excluir");
 
             }
             catch (Exception Ex)

@@ -11,7 +11,7 @@ namespace FinalMateus.Classes
         private int id;
         private string name;
         private string password;
-        //private string confirmPassword;
+        
         private string email;
         private UserProfile userProfile;
         private bool active;
@@ -94,19 +94,7 @@ namespace FinalMateus.Classes
             }
         }
 
-        //public string ConfirmPassword
-        //{
-        //    get
-        //    {
-        //        return confirmPassword;
-        //    }
-
-        //    set
-        //    {
-        //        confirmPassword = value;
-        //    }
-        //}
-
+      
         public User()
         {
 
@@ -116,7 +104,7 @@ namespace FinalMateus.Classes
         {
             this.Name = name;
             this.Password = password;
-            //this.ConfirmPassword = password;
+            
             this.Email = email;
             this.UserProfile = userProfile;
             this.Active = active;
@@ -127,7 +115,7 @@ namespace FinalMateus.Classes
             this.Id = id;
             this.Name = name;
             this.Password = password;
-            //this.ConfirmPassword = confirmPassword;
+            
             this.Email = email;
             this.UserProfile = userProfile;
             this.Active = active;
@@ -135,12 +123,6 @@ namespace FinalMateus.Classes
 
       
 
-
-        //public int Id { get => id; set => id = value; }
-        //public string Name { get => name; set => name = value; }
-        //public string Password { get => password; set => password = value; }
-        //public string Email { get => email; set => email = value; }
-        //public UserProfile UserProfile { get => userProfile; set => userProfile = value; }
-        //public bool Active { get => active; set => active = value; }
+        
     }
 }

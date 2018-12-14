@@ -34,7 +34,7 @@ namespace FinalMateus.Forms
                 sqlConnect.Open();
 
                 SqlCommand cmd = new SqlCommand("SELECT * FROM USER_PROFILE", sqlConnect);
-                // SqlDataReader reader = cmd.ExecuteReader();
+                
 
                 cmd.ExecuteNonQuery();
 
@@ -133,12 +133,13 @@ namespace FinalMateus.Forms
 
                 cmd.ExecuteNonQuery();
                 ShowData();
-                MessageBox.Show("usuario inativo!");
+                MessageBox.Show("Perfil inativo!");
+                Log.SaveLog("Perfil Desativado", DateTime.Now, "Excluir");
 
             }
             catch (Exception Ex)
             {
-                MessageBox.Show("Erro ao editar este usuario!" + "\n\n" + Ex.Message);
+                MessageBox.Show("Erro ao editar este perfil!" + "\n\n" + Ex.Message);
                 throw;
             }
             finally

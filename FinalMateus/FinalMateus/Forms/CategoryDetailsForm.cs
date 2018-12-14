@@ -22,6 +22,11 @@ namespace FinalMateus.Forms
         public CategoryDetailsForm()
         {
             InitializeComponent();
+            if (string.IsNullOrEmpty(lblId.Text))
+            {
+                pbxDelete.Visible = false;
+                
+            }
         }
 
         public CategoryDetailsForm(int idCategory)
@@ -92,13 +97,14 @@ namespace FinalMateus.Forms
             
             CategoryAllForm caf = new CategoryAllForm();
             caf.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void pbxSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(lblId.Text))
             {
+               
                 SqlConnection sqlConnect = new SqlConnection(connectionString);
                 try
                 {
@@ -115,6 +121,7 @@ namespace FinalMateus.Forms
                     {
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Adicionado com sucesso!");
+                        Log.SaveLog("Categoria Adicionada", DateTime.Now, "Adição");
                     }
                     else
                     {
@@ -156,6 +163,7 @@ namespace FinalMateus.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Altereções salvas com sucesso!");
+                    Log.SaveLog("Categoria Editada", DateTime.Now, "Edição");
                 }
                 catch (Exception Ex)
                 {
@@ -175,7 +183,7 @@ namespace FinalMateus.Forms
 
         private void pbxDelete_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(lblId.Text)) //-----
+            if (!string.IsNullOrEmpty(lblId.Text)) 
             {
                 SqlConnection sqlConnect = new SqlConnection(connectionString);
 
@@ -191,7 +199,8 @@ namespace FinalMateus.Forms
 
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("categoria inativa!");
+                    MessageBox.Show("Categoria inativa!");
+                    Log.SaveLog("Categoria Desativada", DateTime.Now, "Excluir");
                 }
                 catch (Exception Ex)
                 {
@@ -200,8 +209,9 @@ namespace FinalMateus.Forms
                 }
                 finally
                 {
+                    ClearData();
                     sqlConnect.Close();
-                   
+                    
                 }
             }
         }
@@ -239,5 +249,7 @@ namespace FinalMateus.Forms
 
         }
         #endregion
+
+       
     }
 }

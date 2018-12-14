@@ -34,8 +34,8 @@ namespace FinalMateus.Forms
         {
 
             InitializeComponent();
-
-            lblId.Text = idProduct.ToString(); //-------
+            cmbCategory.DisplayMember = "Name";
+            lblId.Text = idProduct.ToString(); 
 
             SqlConnection sqlConnect = new SqlConnection(connectionString);
 
@@ -110,15 +110,17 @@ namespace FinalMateus.Forms
                 {
                     while (reader.Read())
                     {
-                        cbxProduct.Items.Add(reader["NAME"].ToString());
+                        //cmbCategory.Items.Add(reader["NAME"].ToString());
+                        Category c = new Category(Int32.Parse(reader["ID"].ToString()), reader["NAME"].ToString(), bool.Parse(reader["ACTIVE"].ToString()));
+                        cmbCategory.Items.Add(c);
                     }
                 }
 
-                cbxProduct.SelectedItem = cbxProduct.Items[indexCombo];
+                //cmbCategory.SelectedItem = cmbCategory.Items[indexCombo];
             }
             catch (Exception EX)
             {
-                MessageBox.Show("erro de acesso ao banco de dados. " + EX.Message);
+                MessageBox.Show("Erro de acesso ao banco de dados. " + EX.Message);
             }
             finally
             {
@@ -171,7 +173,7 @@ namespace FinalMateus.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Adicionado com sucesso!");
-
+                    Log.SaveLog("Produto Adicionado", DateTime.Now, "Adição");
 
                 }
                 catch (Exception ex)
@@ -193,7 +195,7 @@ namespace FinalMateus.Forms
 
                 try
                 {
-                    //GetData();
+                    GetData();
                     Category c = (Category)cmbCategory.SelectedItem;
                     sqlConnect.Open();
 
@@ -204,12 +206,14 @@ namespace FinalMateus.Forms
                     cmd.Parameters.Add(new SqlParameter("@name", name));
                     cmd.Parameters.Add(new SqlParameter("@price", price));
                     cmd.Parameters.Add(new SqlParameter("@active", active));
-                    cmd.Parameters.Add(new SqlParameter("@category", c.Id));
                     
+                    cmd.Parameters.Add(new SqlParameter("@category", c.Id));
+
 
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Altereções salvas com sucesso!");
+                    Log.SaveLog("Produto Adicionado", DateTime.Now, "Edição");
                 }
                 catch (Exception Ex)
                 {
@@ -221,7 +225,7 @@ namespace FinalMateus.Forms
                     sqlConnect.Close();
                     ProductAllForm paf = new ProductAllForm();
                     paf.Show();
-                    this.Hide();
+                    this.Close();
                 }
             }
         }
@@ -274,7 +278,8 @@ namespace FinalMateus.Forms
 
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("produto inativa!");
+                    MessageBox.Show("Produto inativo!");
+                    Log.SaveLog("Produto Desativado", DateTime.Now, "Excluir");
                 }
                 catch (Exception Ex)
                 {
@@ -283,6 +288,7 @@ namespace FinalMateus.Forms
                 }
                 finally
                 {
+                    ClearData();
                     sqlConnect.Close();
                 }
             }
