@@ -43,17 +43,17 @@ namespace FinalMateus.Forms
             {
                 try
                 {
-                    //Conectar
+                    
                     sqlConnect.Open();
 
                     SqlCommand cmd = new SqlCommand("SELECT * FROM PRODUCT WHERE ID = @id", sqlConnect);
-                    //SqlCommand cmd = new SqlCommand("SELECT * FROM CATEGORY WHERE ID = " + idCategory.ToString(), sqlConnect);
+               
 
                     cmd.Parameters.Add(new SqlParameter("@id", idProduct));
 
-                    Product product = new Product(); //------
+                    Product product = new Product(); 
 
-                    using (SqlDataReader reader = cmd.ExecuteReader()) //-----
+                    using (SqlDataReader reader = cmd.ExecuteReader()) 
                     {
                         while (reader.Read())
                         {
@@ -61,27 +61,71 @@ namespace FinalMateus.Forms
                             product.Name = reader["NAME"].ToString();
                             product.Active = bool.Parse(reader["ACTIVE"].ToString());
                             product.Price = float.Parse(reader["PRICE"].ToString());
+                            product.Category = new Category()
+                            {
+                                Id = Int32.Parse(reader["FK_PRODUCT"].ToString())
+                            };
+
                         }
                     }
 
                     tbxName.Text = product.Name;
                     cbxActive.Checked = product.Active;
                     tbxPrice.Text = product.Price.ToString();
+                    int indexCombo = 0;
+                    if (product.Category != null)
+                    {
+                        indexCombo = product.Category.Id;
+                    }
+                    InitializeComboBox(cmbCategory, indexCombo);
 
 
                 }
                 catch (Exception EX)
                 {
-                    //Tratar exce??es
+                    
                     throw;
                 }
                 finally
                 {
-                    //Fechar
+                    
                     sqlConnect.Close();
                 }
             }
         }
+
+        private void InitializeComboBox(ComboBox cbxProduct, int indexCombo)
+        {
+            cbxProduct.Items.Add("Selecione.. ");
+            SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+            try
+            {
+               
+                sqlConnect.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT * FROM CATEGORY", sqlConnect);
+
+                using (SqlDataReader reader = cmd.ExecuteReader()) 
+                {
+                    while (reader.Read())
+                    {
+                        cbxProduct.Items.Add(reader["NAME"].ToString());
+                    }
+                }
+
+                cbxProduct.SelectedItem = cbxProduct.Items[indexCombo];
+            }
+            catch (Exception EX)
+            {
+                MessageBox.Show("erro de acesso ao banco de dados. " + EX.Message);
+            }
+            finally
+            {
+                sqlConnect.Close();
+            }
+        }
+
         void GetData()
         {
             name = tbxName.Text;
@@ -100,7 +144,9 @@ namespace FinalMateus.Forms
 
         private void pbxBack_Click(object sender, EventArgs e)
         {
-            this.Close();
+            ProductAllForm paf = new ProductAllForm();
+            paf.Show();
+            this.Hide();
         }
 
         private void pbxSave_Click(object sender, EventArgs e)
@@ -147,19 +193,19 @@ namespace FinalMateus.Forms
 
                 try
                 {
-                    GetData();
+                    //GetData();
                     Category c = (Category)cmbCategory.SelectedItem;
                     sqlConnect.Open();
 
-                    string sql = "INSERT INTO PRODUCT(NAME, PRICE, ACTIVE, FK_PRODUCT) VALUES (@name, @price, @active, @category) WHERE ID = @id";
-
+                    string sql = "UPDATE PRODUCT SET NAME = @name, PRICE = @price, ACTIVE = @active, FK_PRODUCT = @category WHERE ID= @id";
                     SqlCommand cmd = new SqlCommand(sql, sqlConnect);
 
+                    cmd.Parameters.Add(new SqlParameter("@id", lblId.Text));
                     cmd.Parameters.Add(new SqlParameter("@name", name));
                     cmd.Parameters.Add(new SqlParameter("@price", price));
                     cmd.Parameters.Add(new SqlParameter("@active", active));
                     cmd.Parameters.Add(new SqlParameter("@category", c.Id));
-                    cmd.Parameters.Add(new SqlParameter("@id", lblId.Text));
+                    
 
                     cmd.ExecuteNonQuery();
 
@@ -173,7 +219,9 @@ namespace FinalMateus.Forms
                 finally
                 {
                     sqlConnect.Close();
-                    this.Close();
+                    ProductAllForm paf = new ProductAllForm();
+                    paf.Show();
+                    this.Hide();
                 }
             }
         }
@@ -207,9 +255,10 @@ namespace FinalMateus.Forms
                 cmbCategory.Items.Add(c);
             }
         }
+
         private void pbxDelete_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(lblId.Text)) //-----
+            if (!string.IsNullOrEmpty(lblId.Text))
             {
                 SqlConnection sqlConnect = new SqlConnection(connectionString);
 

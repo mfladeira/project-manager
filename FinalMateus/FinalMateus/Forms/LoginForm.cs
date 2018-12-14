@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalMateus.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,18 +16,29 @@ namespace FinalMateus.Forms
     {
         string name = "";
         string password = "";
-
+        User user;
+        //string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
 
         public LoginForm()
         {
             InitializeComponent();
-            //if (user.UserProfile.Name != "Gerente")
-            //{
-            //    //n pode acessar user user profile log
-            //    pbxSignIn.Enabled = false;
-            //}
 
         }
+        private bool CheckLogin(string password, string name)
+        {
+            User user = UserHelper.SelectByName(name);
+
+            if (user != null)
+            {
+                if (UserHelper.Hash(password) == user.Password)
+                {
+                   
+                    return true;
+                }
+            }
+            return false;
+        }
+
         void GetData()
         {
             name = tbxName.Text;
@@ -46,14 +58,29 @@ namespace FinalMateus.Forms
 
         private void pbxSignIn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            HomeForm hm = new HomeForm();
-            hm.FormClosed += (s, args) => this.Close();
-            hm.Show();
 
+            try
+            {
+                GetData();
+                if (CheckLogin(password, name))
+                {
+                    HomeForm hf = new HomeForm(user);
+                    hf.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    ClearData();
+                    MessageBox.Show("Usuário ou senha incorretos!");
+                }
+            }
+            catch (Exception ex)
+            {
+                ClearData();
+                MessageBox.Show(ex.Message);
+            }
         }
-
-        private void pbxSignIn_MouseEnter(object sender, EventArgs e)
+            private void pbxSignIn_MouseEnter(object sender, EventArgs e)
         {
 
         }

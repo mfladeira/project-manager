@@ -29,7 +29,7 @@ namespace FinalMateus.Forms
 
             InitializeComponent();
 
-            lblId.Text = idCategory.ToString(); //-------
+            lblId.Text = idCategory.ToString(); 
 
             SqlConnection sqlConnect = new SqlConnection(connectionString);
 
@@ -37,17 +37,17 @@ namespace FinalMateus.Forms
             {
                 try
                 {
-                    //Conectar
+                    
                     sqlConnect.Open();
 
                     SqlCommand cmd = new SqlCommand("SELECT * FROM CATEGORY WHERE ID = @id", sqlConnect);
-                    //SqlCommand cmd = new SqlCommand("SELECT * FROM CATEGORY WHERE ID = " + idCategory.ToString(), sqlConnect);
+                    
 
                     cmd.Parameters.Add(new SqlParameter("@id", idCategory));
 
-                    Category category = new Category(); //------
+                    Category category = new Category(); 
 
-                    using (SqlDataReader reader = cmd.ExecuteReader()) //-----
+                    using (SqlDataReader reader = cmd.ExecuteReader()) 
                     {
                         while (reader.Read())
                         {
@@ -64,12 +64,12 @@ namespace FinalMateus.Forms
                 }
                 catch (Exception EX)
                 {
-                    //Tratar exce??es
+                    
                     throw;
                 }
                 finally
                 {
-                    //Fechar
+                   
                     sqlConnect.Close();
                 }
             }
@@ -88,8 +88,11 @@ namespace FinalMateus.Forms
         }
 
         private void pbxBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
+        {       
+            
+            CategoryAllForm caf = new CategoryAllForm();
+            caf.Show();
+            this.Hide();
         }
 
         private void pbxSave_Click(object sender, EventArgs e)
@@ -129,6 +132,7 @@ namespace FinalMateus.Forms
                 {
                     ClearData();
                     sqlConnect.Close();
+                    
                 }
             }
             else
@@ -141,13 +145,13 @@ namespace FinalMateus.Forms
 
                     sqlConnect.Open();
 
-                    string sql = "UPDATE CATEGORY(NAME, ACTIVE) VALUES (@name, @active) WHERE ID = @id";
+                    string sql = "UPDATE CATEGORY SET NAME = @name, ACTIVE = @active WHERE ID = @id";
 
                     SqlCommand cmd = new SqlCommand(sql, sqlConnect);
 
                     cmd.Parameters.Add(new SqlParameter("@name", name));
                     cmd.Parameters.Add(new SqlParameter("@active", active));
-                    cmd.Parameters.Add(new SqlParameter("@active", lblId.Text));
+                    cmd.Parameters.Add(new SqlParameter("@id", lblId.Text));
 
                     cmd.ExecuteNonQuery();
 
@@ -161,7 +165,10 @@ namespace FinalMateus.Forms
                 finally
                 {
                     sqlConnect.Close();
+                    CategoryAllForm caf = new CategoryAllForm();
+                    caf.Show();
                     this.Close();
+
                 }
             }
         }
@@ -194,6 +201,7 @@ namespace FinalMateus.Forms
                 finally
                 {
                     sqlConnect.Close();
+                   
                 }
             }
         }

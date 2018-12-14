@@ -104,17 +104,15 @@ namespace FinalMateus.Forms
 
         private void pbxBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            HomeForm hm = new HomeForm();
-            hm.FormClosed += (s, arg) => this.Close();
-            hm.Show();
+            this.Hide();          
         }
 
         private void pbxAdd_Click(object sender, EventArgs e)
         {
+            
             CategoryDetailsForm cdf = new CategoryDetailsForm();
             cdf.Show();
-            cdf.FormClosed += (s, arg) => ShowData();
+            this.Hide();
         }
 
         private void pbxEdit_Click(object sender, EventArgs e)
@@ -122,6 +120,7 @@ namespace FinalMateus.Forms
             int idCategory = Int32.Parse(dgvCategory.SelectedRows[0].Cells[0].Value.ToString());
             CategoryDetailsForm categoryDetails = new CategoryDetailsForm(idCategory);
             categoryDetails.Show();
+            this.Close();
         }
 
         private void pbxDelete_Click(object sender, EventArgs e)

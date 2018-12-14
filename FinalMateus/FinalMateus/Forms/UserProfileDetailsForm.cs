@@ -37,17 +37,17 @@ namespace FinalMateus.Forms
             {
                 try
                 {
-                    //Conectar
+                   
                     sqlConnect.Open();
 
                     SqlCommand cmd = new SqlCommand("SELECT * FROM USER_PROFILE WHERE ID = @id", sqlConnect);
-                    //SqlCommand cmd = new SqlCommand("SELECT * FROM CATEGORY WHERE ID = " + idCategory.ToString(), sqlConnect);
+                    
 
                     cmd.Parameters.Add(new SqlParameter("@id", idCategory));
 
-                    UserProfile userprofile = new UserProfile(); //------
+                    UserProfile userprofile = new UserProfile(); 
 
-                    using (SqlDataReader reader = cmd.ExecuteReader()) //-----
+                    using (SqlDataReader reader = cmd.ExecuteReader()) 
                     {
                         while (reader.Read())
                         {
@@ -64,12 +64,12 @@ namespace FinalMateus.Forms
                 }
                 catch (Exception EX)
                 {
-                    //Tratar exce??es
+                   
                     throw;
                 }
                 finally
                 {
-                    //Fechar
+                    
                     sqlConnect.Close();
                 }
             }
@@ -134,13 +134,14 @@ namespace FinalMateus.Forms
 
                     sqlConnect.Open();
 
-                    string sql = "UPDATE USER_PROFILE(NAME, ACTIVE) VALUES (@name, @active) WHERE ID = @id";
+                    string sql = "UPDATE USER_PROFILE SET NAME = @name, ACTIVE = @active WHERE ID = @id";
+
 
                     SqlCommand cmd = new SqlCommand(sql, sqlConnect);
 
                     cmd.Parameters.Add(new SqlParameter("@name", name));
                     cmd.Parameters.Add(new SqlParameter("@active", active));
-                    cmd.Parameters.Add(new SqlParameter("@active", lblId.Text));
+                    cmd.Parameters.Add(new SqlParameter("@id", lblId.Text));
 
                     cmd.ExecuteNonQuery();
 
@@ -161,7 +162,7 @@ namespace FinalMateus.Forms
 
         private void pbxDelete_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(lblId.Text)) //-----
+            if (!string.IsNullOrEmpty(lblId.Text)) 
             {
                 SqlConnection sqlConnect = new SqlConnection(connectionString);
 

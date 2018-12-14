@@ -1,4 +1,5 @@
-﻿using FinalMateus.Properties;
+﻿using FinalMateus.Classes;
+using FinalMateus.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ namespace FinalMateus.Forms
     {
         
 
-        public HomeForm()
+        public HomeForm(User user)
         {
             InitializeComponent();
             
@@ -23,11 +24,10 @@ namespace FinalMateus.Forms
         
         private void pbxBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            LoginForm lf = new LoginForm();
-            lf.FormClosed += (s, arg) => this.Close();
-            lf.Show();
             
+            LoginForm lf = new LoginForm();          
+            lf.Show();
+            this.Hide();
         }
 
         private void pbxBack_MouseEnter(object sender, EventArgs e)
@@ -42,42 +42,33 @@ namespace FinalMateus.Forms
 
         private void pbxCategory_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            CategoryAllForm caf = new CategoryAllForm();
-            caf.FormClosed += (s, arg) => this.Close();
+           
+            CategoryAllForm caf = new CategoryAllForm();       
             caf.Show();
             
         }
 
         private void pbxProduct_Click(object sender, EventArgs e)
-        {
-            this.Hide();
+        {           
             ProductAllForm paf = new ProductAllForm();
-            paf.FormClosed += (s, arg) => this.Close();
             paf.Show();
         }
 
         private void pbxUser_Click(object sender, EventArgs e)
-        {
-            this.Hide();
+        {         
             UserAllForm uaf = new UserAllForm();
-            uaf.FormClosed += (s, arg) => this.Close();
             uaf.Show();
         }
 
         private void pbxUserProfile_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            UserProfileAllForm upaf = new UserProfileAllForm();
-            upaf.FormClosed += (s, arg) => this.Close();
+        {           
+            UserProfileAllForm upaf = new UserProfileAllForm();          
             upaf.Show();
         }
 
         private void pbxLog_Click(object sender, EventArgs e)
-        {
-            this.Hide();
+        {           
             LogForm lf = new LogForm();
-            lf.FormClosed += (s, arg) => this.Close();
             lf.Show();
         }
 

@@ -114,9 +114,7 @@ namespace FinalMateus.Forms
         private void pbxBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            HomeForm hm = new HomeForm();
-            hm.FormClosed += (s, arg) => this.Close();
-            hm.Show();
+            
         }
 
         private void pbxBack_MouseEnter(object sender, EventArgs e)
