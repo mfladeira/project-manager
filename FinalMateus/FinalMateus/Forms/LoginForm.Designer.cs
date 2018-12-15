@@ -43,7 +43,7 @@
             // tbxPassword
             // 
             this.tbxPassword.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPassword.Location = new System.Drawing.Point(278, 212);
+            this.tbxPassword.Location = new System.Drawing.Point(283, 196);
             this.tbxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.Size = new System.Drawing.Size(350, 31);
@@ -55,7 +55,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label3.Location = new System.Drawing.Point(274, 173);
+            this.label3.Location = new System.Drawing.Point(279, 157);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 23);
@@ -66,7 +66,7 @@
             // 
             this.tbxName.BackColor = System.Drawing.Color.White;
             this.tbxName.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxName.Location = new System.Drawing.Point(278, 100);
+            this.tbxName.Location = new System.Drawing.Point(283, 84);
             this.tbxName.Margin = new System.Windows.Forms.Padding(4);
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(350, 31);
@@ -78,7 +78,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label1.Location = new System.Drawing.Point(274, 58);
+            this.label1.Location = new System.Drawing.Point(279, 42);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 23);
@@ -89,7 +89,7 @@
             // 
             this.lbForgot.AutoSize = true;
             this.lbForgot.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbForgot.Location = new System.Drawing.Point(275, 279);
+            this.lbForgot.Location = new System.Drawing.Point(280, 258);
             this.lbForgot.Name = "lbForgot";
             this.lbForgot.Size = new System.Drawing.Size(138, 18);
             this.lbForgot.TabIndex = 10;
@@ -103,9 +103,9 @@
             this.pbxSignIn.BackgroundImage = global::FinalMateus.Properties.Resources.enter;
             this.pbxSignIn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxSignIn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbxSignIn.Location = new System.Drawing.Point(369, 350);
+            this.pbxSignIn.Location = new System.Drawing.Point(387, 339);
             this.pbxSignIn.Name = "pbxSignIn";
-            this.pbxSignIn.Size = new System.Drawing.Size(132, 60);
+            this.pbxSignIn.Size = new System.Drawing.Size(130, 55);
             this.pbxSignIn.TabIndex = 11;
             this.pbxSignIn.TabStop = false;
             this.pbxSignIn.Click += new System.EventHandler(this.pbxSignIn_Click);
@@ -114,11 +114,12 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::FinalMateus.Properties.Resources.level_up;
+            this.pictureBox1.BackgroundImage = global::FinalMateus.Properties.Resources.levle_upspp;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 28);
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 42);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(256, 444);
+            this.pictureBox1.Size = new System.Drawing.Size(260, 372);
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
@@ -127,7 +128,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(641, 520);
+            this.ClientSize = new System.Drawing.Size(641, 456);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pbxSignIn);
             this.Controls.Add(this.lbForgot);

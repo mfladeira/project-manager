@@ -50,22 +50,22 @@
             // 
             this.tbxName.BackColor = System.Drawing.Color.White;
             this.tbxName.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxName.Location = new System.Drawing.Point(17, 59);
+            this.tbxName.Location = new System.Drawing.Point(94, 50);
             this.tbxName.Margin = new System.Windows.Forms.Padding(4);
             this.tbxName.Name = "tbxName";
-            this.tbxName.Size = new System.Drawing.Size(375, 31);
+            this.tbxName.Size = new System.Drawing.Size(517, 31);
             this.tbxName.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label1.Location = new System.Drawing.Point(13, 32);
+            this.label1.Location = new System.Drawing.Point(25, 50);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 23);
+            this.label1.Size = new System.Drawing.Size(61, 22);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nome:";
             // 
@@ -73,12 +73,12 @@
             // 
             this.lblCategory.AutoSize = true;
             this.lblCategory.BackColor = System.Drawing.Color.Transparent;
-            this.lblCategory.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Bold);
             this.lblCategory.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.lblCategory.Location = new System.Drawing.Point(13, 203);
+            this.lblCategory.Location = new System.Drawing.Point(11, 203);
             this.lblCategory.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(91, 23);
+            this.lblCategory.Size = new System.Drawing.Size(87, 22);
             this.lblCategory.TabIndex = 4;
             this.lblCategory.Text = "Categoria:";
             // 
@@ -86,12 +86,12 @@
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.BackColor = System.Drawing.Color.Transparent;
-            this.lblPrice.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Bold);
             this.lblPrice.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.lblPrice.Location = new System.Drawing.Point(13, 120);
+            this.lblPrice.Location = new System.Drawing.Point(25, 131);
             this.lblPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(60, 23);
+            this.lblPrice.Size = new System.Drawing.Size(58, 22);
             this.lblPrice.TabIndex = 5;
             this.lblPrice.Text = "Preço:";
             // 
@@ -99,20 +99,20 @@
             // 
             this.tbxPrice.BackColor = System.Drawing.Color.White;
             this.tbxPrice.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPrice.Location = new System.Drawing.Point(17, 147);
+            this.tbxPrice.Location = new System.Drawing.Point(92, 128);
             this.tbxPrice.Margin = new System.Windows.Forms.Padding(4);
             this.tbxPrice.Name = "tbxPrice";
-            this.tbxPrice.Size = new System.Drawing.Size(375, 31);
+            this.tbxPrice.Size = new System.Drawing.Size(519, 31);
             this.tbxPrice.TabIndex = 6;
             // 
             // cmbCategory
             // 
             this.cmbCategory.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(17, 241);
+            this.cmbCategory.Location = new System.Drawing.Point(94, 198);
             this.cmbCategory.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(375, 31);
+            this.cmbCategory.Size = new System.Drawing.Size(194, 31);
             this.cmbCategory.TabIndex = 10;
             // 
             // pbxSave
@@ -121,10 +121,10 @@
             this.pbxSave.BackgroundImage = global::FinalMateus.Properties.Resources.Save;
             this.pbxSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbxSave.Location = new System.Drawing.Point(195, 372);
+            this.pbxSave.Location = new System.Drawing.Point(372, 420);
             this.pbxSave.Margin = new System.Windows.Forms.Padding(4);
             this.pbxSave.Name = "pbxSave";
-            this.pbxSave.Size = new System.Drawing.Size(84, 57);
+            this.pbxSave.Size = new System.Drawing.Size(90, 66);
             this.pbxSave.TabIndex = 18;
             this.pbxSave.TabStop = false;
             this.pbxSave.Click += new System.EventHandler(this.pbxSave_Click);
@@ -137,9 +137,9 @@
             this.pbxBack.BackgroundImage = global::FinalMateus.Properties.Resources.Back;
             this.pbxBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbxBack.Location = new System.Drawing.Point(17, 372);
+            this.pbxBack.Location = new System.Drawing.Point(17, 420);
             this.pbxBack.Name = "pbxBack";
-            this.pbxBack.Size = new System.Drawing.Size(87, 57);
+            this.pbxBack.Size = new System.Drawing.Size(90, 66);
             this.pbxBack.TabIndex = 17;
             this.pbxBack.TabStop = false;
             this.pbxBack.Click += new System.EventHandler(this.pbxBack_Click);
@@ -152,10 +152,10 @@
             this.pbxDelete.BackgroundImage = global::FinalMateus.Properties.Resources.Delete_Close;
             this.pbxDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbxDelete.Location = new System.Drawing.Point(287, 372);
+            this.pbxDelete.Location = new System.Drawing.Point(508, 420);
             this.pbxDelete.Margin = new System.Windows.Forms.Padding(4);
             this.pbxDelete.Name = "pbxDelete";
-            this.pbxDelete.Size = new System.Drawing.Size(90, 57);
+            this.pbxDelete.Size = new System.Drawing.Size(90, 66);
             this.pbxDelete.TabIndex = 19;
             this.pbxDelete.TabStop = false;
             this.pbxDelete.Click += new System.EventHandler(this.pbxDelete_Click);
@@ -166,7 +166,7 @@
             // 
             this.cbxActive.AutoSize = true;
             this.cbxActive.BackColor = System.Drawing.Color.Transparent;
-            this.cbxActive.Location = new System.Drawing.Point(74, 309);
+            this.cbxActive.Location = new System.Drawing.Point(92, 285);
             this.cbxActive.Margin = new System.Windows.Forms.Padding(4);
             this.cbxActive.Name = "cbxActive";
             this.cbxActive.Size = new System.Drawing.Size(15, 14);
@@ -177,12 +177,12 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label7.Location = new System.Drawing.Point(20, 303);
+            this.label7.Location = new System.Drawing.Point(25, 280);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 23);
+            this.label7.Size = new System.Drawing.Size(55, 22);
             this.label7.TabIndex = 20;
             this.label7.Text = "Ativo:";
             // 
@@ -200,7 +200,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(399, 462);
+            this.ClientSize = new System.Drawing.Size(641, 520);
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.cbxActive);
             this.Controls.Add(this.label7);

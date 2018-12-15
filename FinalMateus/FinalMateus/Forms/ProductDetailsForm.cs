@@ -27,7 +27,13 @@ namespace FinalMateus.Forms
             InitializeComponent();
             cmbCategory.DisplayMember = "NAME";
             LoadComboBox();
- 
+            if (string.IsNullOrEmpty(lblId.Text))
+            {
+                pbxDelete.Visible = false;
+                pbxSave.Location = new Point(pbxSave.Location.X + 140, pbxSave.Location.Y);
+
+            }
+
         }
 
         public ProductDetailsForm(int idProduct)
@@ -82,8 +88,7 @@ namespace FinalMateus.Forms
 
                 }
                 catch (Exception EX)
-                {
-                    
+                {                   
                     throw;
                 }
                 finally
@@ -110,13 +115,12 @@ namespace FinalMateus.Forms
                 {
                     while (reader.Read())
                     {
-                        //cmbCategory.Items.Add(reader["NAME"].ToString());
                         Category c = new Category(Int32.Parse(reader["ID"].ToString()), reader["NAME"].ToString(), bool.Parse(reader["ACTIVE"].ToString()));
                         cmbCategory.Items.Add(c);
                     }
                 }
 
-                //cmbCategory.SelectedItem = cmbCategory.Items[indexCombo];
+                cmbCategory.SelectedItem = cmbCategory.Items[indexCombo];
             }
             catch (Exception EX)
             {

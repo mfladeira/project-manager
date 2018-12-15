@@ -65,11 +65,11 @@ namespace FinalMateus.Forms
                 GetData();
                 if (CheckLogin(password, name))
                 {
-
-                    HomeForm hf = new HomeForm(userAuxx);
-
-                    hf.Show();
                     this.Hide();
+                    HomeForm hf = new HomeForm(userAuxx);
+                    hf.FormClosed += (s, args) => this.Close();
+                    hf.Show();
+                   
 
                 }
                 else

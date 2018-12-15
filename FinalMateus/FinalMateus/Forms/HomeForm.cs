@@ -32,11 +32,11 @@ namespace FinalMateus.Forms
 
         private void pbxBack_Click(object sender, EventArgs e)
         {
-            
-            LoginForm lf = new LoginForm();           
-            lf.Show();
             this.Hide();
-                      
+            LoginForm lf = new LoginForm();
+            lf.FormClosed += (s, args) => this.Close();
+            lf.Show();
+                                
         }
 
         private void pbxBack_MouseEnter(object sender, EventArgs e)

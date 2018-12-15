@@ -29,6 +29,12 @@ namespace FinalMateus.Forms
             InitializeComponent();
             cmbProfile.DisplayMember = "NAME";
             LoadComboBox();
+            if (string.IsNullOrEmpty(lblId.Text))
+            {
+                pbxDelete.Visible = false;
+                pbxSave.Location = new Point(pbxSave.Location.X + 140, pbxSave.Location.Y);
+
+            }
         }
 
         public UserDetailsForm(int idUser)

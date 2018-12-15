@@ -22,6 +22,12 @@ namespace FinalMateus.Forms
         public UserProfileDetailsForm()
         {
             InitializeComponent();
+            if (string.IsNullOrEmpty(lblId.Text))
+            {
+                pbxDelete.Visible = false;
+                pbxSave.Location = new Point(pbxSave.Location.X + 140, pbxSave.Location.Y);
+
+            }
         }
 
         public UserProfileDetailsForm(int idCategory)
@@ -234,5 +240,6 @@ namespace FinalMateus.Forms
         {
             pbxDelete.BackgroundImage = Resources.Delete_Close;
         }
+
     }
 }

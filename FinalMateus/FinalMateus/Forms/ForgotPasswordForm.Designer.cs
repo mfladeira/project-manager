@@ -68,7 +68,7 @@
             this.pbxBack.BackgroundImage = global::FinalMateus.Properties.Resources.Back;
             this.pbxBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbxBack.Location = new System.Drawing.Point(279, 392);
+            this.pbxBack.Location = new System.Drawing.Point(279, 359);
             this.pbxBack.Name = "pbxBack";
             this.pbxBack.Size = new System.Drawing.Size(92, 51);
             this.pbxBack.TabIndex = 29;
@@ -82,7 +82,7 @@
             this.pbxSend.BackgroundImage = global::FinalMateus.Properties.Resources.forgot;
             this.pbxSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxSend.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbxSend.Location = new System.Drawing.Point(382, 168);
+            this.pbxSend.Location = new System.Drawing.Point(395, 165);
             this.pbxSend.Name = "pbxSend";
             this.pbxSend.Size = new System.Drawing.Size(114, 67);
             this.pbxSend.TabIndex = 10;
@@ -93,11 +93,13 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::FinalMateus.Properties.Resources.level_up;
+            this.pictureBox1.BackgroundImage = global::FinalMateus.Properties.Resources.levle_upspp;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(8, 38);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(256, 444);
+            this.pictureBox1.Size = new System.Drawing.Size(260, 372);
             this.pictureBox1.TabIndex = 30;
             this.pictureBox1.TabStop = false;
             // 
@@ -106,7 +108,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(641, 520);
+            this.ClientSize = new System.Drawing.Size(641, 456);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pbxBack);
             this.Controls.Add(this.pbxSend);

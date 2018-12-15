@@ -215,6 +215,8 @@
     <Content Include="Icons\Search.png" />
     <Content Include="Icons\User profile.png" />
     <Content Include="Icons\User.png" />
+    <None Include="Resources\levle upspp.jpg" />
+    <None Include="Resources\levle uppp.jpg" />
     <None Include="Resources\level up academy.png" />
     <None Include="Resources\level up.png" />
     <None Include="Resources\forgot.png" />

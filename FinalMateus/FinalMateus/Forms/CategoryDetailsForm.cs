@@ -25,7 +25,7 @@ namespace FinalMateus.Forms
             if (string.IsNullOrEmpty(lblId.Text))
             {
                 pbxDelete.Visible = false;
-                
+                pbxSave.Location = new Point(pbxSave.Location.X+140, pbxSave.Location.Y);
             }
         }
 
