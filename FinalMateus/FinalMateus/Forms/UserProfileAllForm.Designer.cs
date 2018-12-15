@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserProfileAllForm));
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pbxAdd = new System.Windows.Forms.PictureBox();
@@ -162,13 +163,14 @@
             this.dgvUserProfile.AllowUserToDeleteRows = false;
             this.dgvUserProfile.AllowUserToResizeColumns = false;
             this.dgvUserProfile.AllowUserToResizeRows = false;
-            this.dgvUserProfile.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUserProfile.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUserProfile.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvUserProfile.Location = new System.Drawing.Point(105, 112);
+            this.dgvUserProfile.Location = new System.Drawing.Point(16, 75);
             this.dgvUserProfile.MultiSelect = false;
             this.dgvUserProfile.Name = "dgvUserProfile";
+            this.dgvUserProfile.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvUserProfile.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUserProfile.Size = new System.Drawing.Size(423, 262);
+            this.dgvUserProfile.Size = new System.Drawing.Size(559, 327);
             this.dgvUserProfile.TabIndex = 36;
             // 
             // UserProfileAllForm
@@ -186,6 +188,7 @@
             this.Controls.Add(this.pbxSearch);
             this.Controls.Add(this.tbxSearch);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserProfileAllForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserProfileAllForm";

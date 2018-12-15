@@ -105,7 +105,7 @@ namespace FinalMateus.Forms
         {
             UserProfileDetailsForm updf = new UserProfileDetailsForm();
             updf.Show();
-            updf.FormClosed += (s, arg) => ShowData();
+            this.Hide();
         }
 
         private void pbxEdit_Click(object sender, EventArgs e)
@@ -113,6 +113,7 @@ namespace FinalMateus.Forms
             int idUserProfile = Int32.Parse(dgvUserProfile.SelectedRows[0].Cells[0].Value.ToString());
             UserProfileDetailsForm updf = new UserProfileDetailsForm(idUserProfile);
             updf.Show();
+            this.Close();
         }
 
         private void pbxDelete_Click(object sender, EventArgs e)
@@ -150,32 +151,32 @@ namespace FinalMateus.Forms
 
         private void pbxSearch_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxSearch.BackgroundImage = Resources.SearchChanged;
         }
 
         private void pbxSearch_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxSearch.BackgroundImage = Resources.Search;
         }
 
         private void pbxClean_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxClean.BackgroundImage = Resources.CleanChanged;
         }
 
         private void pbxClean_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxClean.BackgroundImage = Resources.Clean;
         }
 
         private void pbxBack_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxBack.BackgroundImage = Resources.BackColor;
         }
 
         private void pbxBack_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxBack.BackgroundImage = Resources.Back;
         }
 
         private void pbxAdd_MouseEnter(object sender, EventArgs e)
@@ -190,12 +191,12 @@ namespace FinalMateus.Forms
 
         private void pbxEdit_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxEdit.BackgroundImage = Resources.EditChanged;
         }
 
         private void pbxEdit_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxEdit.BackgroundImage = Resources.Edit;
         }
 
         private void pbxDelete_MouseEnter(object sender, EventArgs e)

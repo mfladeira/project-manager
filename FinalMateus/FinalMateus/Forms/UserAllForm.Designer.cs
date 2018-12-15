@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserAllForm));
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pbxAdd = new System.Windows.Forms.PictureBox();
@@ -130,7 +131,7 @@
             // 
             // pbxClean
             // 
-            this.pbxClean.BackgroundImage = global::FinalMateus.Properties.Resources.Edit;
+            this.pbxClean.BackgroundImage = global::FinalMateus.Properties.Resources.Clean;
             this.pbxClean.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxClean.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbxClean.Location = new System.Drawing.Point(564, 12);
@@ -161,6 +162,7 @@
             this.dgvUser.AllowUserToAddRows = false;
             this.dgvUser.AllowUserToDeleteRows = false;
             this.dgvUser.AllowUserToResizeColumns = false;
+            this.dgvUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUser.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvUser.Location = new System.Drawing.Point(36, 84);
@@ -185,6 +187,7 @@
             this.Controls.Add(this.pbxSearch);
             this.Controls.Add(this.tbxSearch);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserAllForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserAllForm";

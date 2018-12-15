@@ -29,7 +29,7 @@ namespace FinalMateus.Forms
 
             InitializeComponent();
 
-            lblId.Text = idCategory.ToString(); //-------
+            lblId.Text = idCategory.ToString(); 
 
             SqlConnection sqlConnect = new SqlConnection(connectionString);
 
@@ -87,6 +87,8 @@ namespace FinalMateus.Forms
         }
         private void pbxBack_Click(object sender, EventArgs e)
         {
+            UserProfileAllForm upfa = new UserProfileAllForm();
+            upfa.Show();
             this.Close();
         }
 
@@ -106,11 +108,16 @@ namespace FinalMateus.Forms
 
                     cmd.Parameters.Add(new SqlParameter("@name", name));
                     cmd.Parameters.Add(new SqlParameter("@active", active));
-
-                    cmd.ExecuteNonQuery();
-
-                    MessageBox.Show("Adicionado com sucesso!");
-                    Log.SaveLog("Perfil Adicionado", DateTime.Now, "Adição");
+                    if (name != "")
+                    {
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Adicionado com sucesso!");
+                        Log.SaveLog("Perfil adicionado", DateTime.Now, "Adição");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao adicionar perfil, nome em branco!");
+                    }
 
                 }
                 catch (Exception ex)
@@ -145,7 +152,7 @@ namespace FinalMateus.Forms
 
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Altereções salvas com sucesso!");
+                    MessageBox.Show("Alterações salvas com sucesso!");
                     Log.SaveLog("Perfil Editado", DateTime.Now, "Edição");
                 }
                 catch (Exception Ex)
@@ -156,6 +163,8 @@ namespace FinalMateus.Forms
                 finally
                 {
                     sqlConnect.Close();
+                    UserProfileAllForm upf = new UserProfileAllForm();
+                    upf.Show();
                     this.Close();
                 }
             }
@@ -190,6 +199,7 @@ namespace FinalMateus.Forms
                 }
                 finally
                 {
+                    ClearData();
                     sqlConnect.Close();
                 }
             }
@@ -197,12 +207,12 @@ namespace FinalMateus.Forms
 
         private void pbxBack_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxBack.BackgroundImage = Resources.BackColor;
         }
 
         private void pbxBack_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxBack.BackgroundImage = Resources.Back;
         }
 
         private void pbxSave_MouseEnter(object sender, EventArgs e)

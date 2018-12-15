@@ -113,6 +113,16 @@ namespace FinalMateus.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CategoryChanged {
+            get {
+                object obj = ResourceManager.GetObject("CategoryChanged", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Clean {
             get {
                 object obj = ResourceManager.GetObject("Clean", resourceCulture);
@@ -163,9 +173,9 @@ namespace FinalMateus.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ENTRAR {
+        internal static System.Drawing.Bitmap EditChanged {
             get {
-                object obj = ResourceManager.GetObject("ENTRAR", resourceCulture);
+                object obj = ResourceManager.GetObject("EditChanged", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +183,69 @@ namespace FinalMateus.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ENVIAR {
+        internal static System.Drawing.Bitmap enter {
             get {
-                object obj = ResourceManager.GetObject("ENVIAR", resourceCulture);
+                object obj = ResourceManager.GetObject("enter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap enter___Copia {
+            get {
+                object obj = ResourceManager.GetObject("enter___Copia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon factory_F1w_icon {
+            get {
+                object obj = ResourceManager.GetObject("factory_F1w_icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap forgot {
+            get {
+                object obj = ResourceManager.GetObject("forgot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap forgotchanged {
+            get {
+                object obj = ResourceManager.GetObject("forgotchanged", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap level_up {
+            get {
+                object obj = ResourceManager.GetObject("level_up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap level_up_academy {
+            get {
+                object obj = ResourceManager.GetObject("level_up_academy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +263,29 @@ namespace FinalMateus.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logChanged {
+            get {
+                object obj = ResourceManager.GetObject("logChanged", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Product {
             get {
                 object obj = ResourceManager.GetObject("Product", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProductChanged {
+            get {
+                object obj = ResourceManager.GetObject("ProductChanged", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -266,6 +356,26 @@ namespace FinalMateus.Properties {
         internal static System.Drawing.Bitmap User_profile {
             get {
                 object obj = ResourceManager.GetObject("User_profile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User_profileChanged {
+            get {
+                object obj = ResourceManager.GetObject("User_profileChanged", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UserChanged {
+            get {
+                object obj = ResourceManager.GetObject("UserChanged", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

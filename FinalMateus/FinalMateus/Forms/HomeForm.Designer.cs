@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,7 +52,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(52, 124);
+            this.label1.Location = new System.Drawing.Point(92, 138);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 19);
             this.label1.TabIndex = 23;
@@ -61,7 +62,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(272, 124);
+            this.label2.Location = new System.Drawing.Point(467, 138);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 19);
             this.label2.TabIndex = 24;
@@ -71,7 +72,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(171, 217);
+            this.label3.Location = new System.Drawing.Point(305, 272);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 19);
             this.label3.TabIndex = 25;
@@ -81,7 +82,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(52, 323);
+            this.label4.Location = new System.Drawing.Point(105, 371);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 19);
             this.label4.TabIndex = 26;
@@ -91,7 +92,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(286, 323);
+            this.label5.Location = new System.Drawing.Point(486, 371);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(33, 19);
             this.label5.TabIndex = 27;
@@ -102,9 +103,9 @@
             this.pbxLog.BackgroundImage = global::FinalMateus.Properties.Resources.log;
             this.pbxLog.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxLog.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbxLog.Location = new System.Drawing.Point(253, 248);
+            this.pbxLog.Location = new System.Drawing.Point(444, 258);
             this.pbxLog.Name = "pbxLog";
-            this.pbxLog.Size = new System.Drawing.Size(100, 72);
+            this.pbxLog.Size = new System.Drawing.Size(115, 95);
             this.pbxLog.TabIndex = 22;
             this.pbxLog.TabStop = false;
             this.pbxLog.Click += new System.EventHandler(this.pbxLog_Click);
@@ -116,9 +117,9 @@
             this.pbxUserProfile.BackgroundImage = global::FinalMateus.Properties.Resources.User_profile;
             this.pbxUserProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxUserProfile.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbxUserProfile.Location = new System.Drawing.Point(40, 248);
+            this.pbxUserProfile.Location = new System.Drawing.Point(73, 258);
             this.pbxUserProfile.Name = "pbxUserProfile";
-            this.pbxUserProfile.Size = new System.Drawing.Size(100, 72);
+            this.pbxUserProfile.Size = new System.Drawing.Size(115, 95);
             this.pbxUserProfile.TabIndex = 21;
             this.pbxUserProfile.TabStop = false;
             this.pbxUserProfile.Click += new System.EventHandler(this.pbxUserProfile_Click);
@@ -130,9 +131,9 @@
             this.pbxUser.BackgroundImage = global::FinalMateus.Properties.Resources.User;
             this.pbxUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbxUser.Location = new System.Drawing.Point(147, 149);
+            this.pbxUser.Location = new System.Drawing.Point(278, 162);
             this.pbxUser.Name = "pbxUser";
-            this.pbxUser.Size = new System.Drawing.Size(107, 65);
+            this.pbxUser.Size = new System.Drawing.Size(115, 95);
             this.pbxUser.TabIndex = 20;
             this.pbxUser.TabStop = false;
             this.pbxUser.Click += new System.EventHandler(this.pbxUser_Click);
@@ -144,9 +145,9 @@
             this.pbxProduct.BackgroundImage = global::FinalMateus.Properties.Resources.Product;
             this.pbxProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxProduct.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbxProduct.Location = new System.Drawing.Point(253, 53);
+            this.pbxProduct.Location = new System.Drawing.Point(444, 25);
             this.pbxProduct.Name = "pbxProduct";
-            this.pbxProduct.Size = new System.Drawing.Size(100, 68);
+            this.pbxProduct.Size = new System.Drawing.Size(115, 95);
             this.pbxProduct.TabIndex = 19;
             this.pbxProduct.TabStop = false;
             this.pbxProduct.Click += new System.EventHandler(this.pbxProduct_Click);
@@ -158,9 +159,9 @@
             this.pbxCategory.BackgroundImage = global::FinalMateus.Properties.Resources.Category;
             this.pbxCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxCategory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbxCategory.Location = new System.Drawing.Point(40, 53);
+            this.pbxCategory.Location = new System.Drawing.Point(73, 25);
             this.pbxCategory.Name = "pbxCategory";
-            this.pbxCategory.Size = new System.Drawing.Size(100, 68);
+            this.pbxCategory.Size = new System.Drawing.Size(115, 95);
             this.pbxCategory.TabIndex = 18;
             this.pbxCategory.TabStop = false;
             this.pbxCategory.Click += new System.EventHandler(this.pbxCategory_Click);
@@ -173,9 +174,9 @@
             this.pbxBack.BackgroundImage = global::FinalMateus.Properties.Resources.Back;
             this.pbxBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbxBack.Location = new System.Drawing.Point(26, 391);
+            this.pbxBack.Location = new System.Drawing.Point(35, 421);
             this.pbxBack.Name = "pbxBack";
-            this.pbxBack.Size = new System.Drawing.Size(100, 50);
+            this.pbxBack.Size = new System.Drawing.Size(89, 63);
             this.pbxBack.TabIndex = 17;
             this.pbxBack.TabStop = false;
             this.pbxBack.Click += new System.EventHandler(this.pbxBack_Click);
@@ -187,7 +188,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(399, 462);
+            this.ClientSize = new System.Drawing.Size(641, 520);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -199,6 +200,7 @@
             this.Controls.Add(this.pbxProduct);
             this.Controls.Add(this.pbxCategory);
             this.Controls.Add(this.pbxBack);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HomeForm";

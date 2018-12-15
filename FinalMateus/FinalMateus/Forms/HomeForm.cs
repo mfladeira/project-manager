@@ -23,20 +23,20 @@ namespace FinalMateus.Forms
             if (user.UserProfile.Name != "Gerente")
             {
                 aux = false;
-                pbxLog.Visible = false;
-                pbxUser.Visible = false;
-                pbxUserProfile.Visible = false;
+                pbxLog.Enabled = false;
+                pbxUser.Enabled = false;
+                pbxUserProfile.Enabled = false;
 
             }
         }
 
         private void pbxBack_Click(object sender, EventArgs e)
         {
-
-            LoginForm lf = new LoginForm();
-            lf.FormClosed += (s, arg) => this.Close();
-            lf.Show();
             
+            LoginForm lf = new LoginForm();           
+            lf.Show();
+            this.Hide();
+                      
         }
 
         private void pbxBack_MouseEnter(object sender, EventArgs e)
@@ -83,52 +83,83 @@ namespace FinalMateus.Forms
 
         private void pbxCategory_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxCategory.BackgroundImage = Resources.CategoryChanged;
         }
 
         private void pbxCategory_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxCategory.BackgroundImage = Resources.Category;
         }
 
         private void pbxProduct_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxProduct.BackgroundImage = Resources.ProductChanged;
         }
 
         private void pbxProduct_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxProduct.BackgroundImage = Resources.Product;
         }
 
         private void pbxUser_MouseEnter(object sender, EventArgs e)
         {
-            pbxUser.BackgroundImage = Resources.User_Changed;
+            if (aux)
+            {
+                pbxUser.BackgroundImage = Resources.UserChanged;
+            }
+            else
+            {
+                pbxUser.Cursor = Cursors.Arrow;
+            }
         }
 
         private void pbxUser_MouseLeave(object sender, EventArgs e)
         {
-            pbxUser.BackgroundImage = Resources.User;
+            if (aux)
+            {
+                pbxUser.BackgroundImage = Resources.User;
+            }
         }
 
         private void pbxUserProfile_MouseEnter(object sender, EventArgs e)
         {
-
+            if (aux)
+            {
+                pbxUserProfile.BackgroundImage = Resources.User_profileChanged;
+            }
+            else
+            {
+                pbxUserProfile.Cursor = Cursors.Arrow;
+            }
         }
 
         private void pbxUserProfile_MouseLeave(object sender, EventArgs e)
         {
-
+            if (aux)
+            {
+                pbxUserProfile.BackgroundImage = Resources.User_profile;
+            }
         }
 
         private void pbxLog_MouseEnter(object sender, EventArgs e)
         {
+            if (aux)
+            {
+                pbxLog.BackgroundImage = Resources.logChanged;
+            }
+            else
+            {
+                pbxLog.Cursor = Cursors.Arrow;
+            }
 
         }
 
         private void pbxLog_MouseLeave(object sender, EventArgs e)
         {
-
+            if (aux)
+            {
+                pbxLog.BackgroundImage = Resources.log;
+            }
         }
 
 

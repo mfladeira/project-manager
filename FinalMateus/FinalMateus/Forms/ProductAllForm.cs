@@ -60,6 +60,7 @@ namespace FinalMateus.Forms
 
             Search search = new Search();
             dgvProduct.DataSource = search.SearchFilter(connectionString, tbxSearch.Text, optionString, optionForm);
+            
         }
 
         private void ResizeDataGridView()
@@ -154,22 +155,22 @@ namespace FinalMateus.Forms
         #region images
         private void pbxSearch_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxSearch.BackgroundImage = Resources.SearchChanged;
         }
 
         private void pbxSearch_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxSearch.BackgroundImage = Resources.Search;
         }
 
         private void pbxBack_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxBack.BackgroundImage = Resources.BackColor;
         }
 
         private void pbxBack_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxBack.BackgroundImage = Resources.Back;
         }
 
         private void pbxAdd_MouseEnter(object sender, EventArgs e)
@@ -184,12 +185,12 @@ namespace FinalMateus.Forms
 
         private void pbxEdit_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxEdit.BackgroundImage = Resources.EditChanged;
         }
 
         private void pbxEdit_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxEdit.BackgroundImage = Resources.Edit;
         }
 
         private void pbxDelete_MouseEnter(object sender, EventArgs e)
@@ -202,10 +203,7 @@ namespace FinalMateus.Forms
             pbxDelete.BackgroundImage = Resources.Delete_Close;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-                
-        }
+      
 
         private void pbxClean1_Click(object sender, EventArgs e)
         {
@@ -215,12 +213,12 @@ namespace FinalMateus.Forms
 
         private void pbxClean1_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxClean1.BackgroundImage = Resources.CleanChanged;
         }
 
         private void pbxClean1_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxClean1.BackgroundImage = Resources.Clean;
         }
 
         private void tbxSearch_TextChanged(object sender, EventArgs e)

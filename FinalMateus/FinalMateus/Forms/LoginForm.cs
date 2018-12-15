@@ -1,4 +1,5 @@
 ﻿using FinalMateus.Classes;
+using FinalMateus.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,7 @@ namespace FinalMateus.Forms
         string name = "";
         string password = "";
         User userAuxx;
-  
+
         public LoginForm()
         {
             InitializeComponent();
@@ -64,10 +65,12 @@ namespace FinalMateus.Forms
                 GetData();
                 if (CheckLogin(password, name))
                 {
-                    this.Hide();
-                    HomeForm hf = new HomeForm(userAuxx);                
-                    hf.FormClosed +=(s,arg) =>this.Close();
+
+                    HomeForm hf = new HomeForm(userAuxx);
+
                     hf.Show();
+                    this.Hide();
+
                 }
                 else
                 {
@@ -81,13 +84,14 @@ namespace FinalMateus.Forms
                 MessageBox.Show(ex.Message);
             }
         }
-            private void pbxSignIn_MouseEnter(object sender, EventArgs e)
+        private void pbxSignIn_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxSignIn.BackgroundImage = Resources.enter___Copia;
         }
 
         private void pbxSignIn_MouseLeave(object sender, EventArgs e)
         {
+            pbxSignIn.BackgroundImage = Resources.enter;
 
         }
 

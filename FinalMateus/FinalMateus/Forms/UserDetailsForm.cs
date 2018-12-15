@@ -240,6 +240,8 @@ namespace FinalMateus.Forms
                 finally
                 {
                     sqlConnect.Close();
+                    UserAllForm uaf = new UserAllForm();
+                    uaf.Show();
                     this.Close();
                 }
             }
@@ -320,17 +322,19 @@ namespace FinalMateus.Forms
 
         private void pbxBack_Click(object sender, EventArgs e)
         {
+            UserAllForm uaf = new UserAllForm();
+            uaf.Show();
             this.Close();
         }
 
         private void pbxBack_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxBack.BackgroundImage = Resources.BackColor;
         }
 
         private void pbxBack_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxBack.BackgroundImage = Resources.Back;
         }
     }
 }

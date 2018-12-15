@@ -162,7 +162,7 @@ namespace FinalMateus.Forms
 
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Altereções salvas com sucesso!");
+                    MessageBox.Show("Alterações salvas com sucesso!");
                     Log.SaveLog("Categoria Editada", DateTime.Now, "Edição");
                 }
                 catch (Exception Ex)
@@ -219,12 +219,12 @@ namespace FinalMateus.Forms
         #region images
         private void pbxBack_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxBack.BackgroundImage = Resources.BackColor;
         }
 
         private void pbxBack_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxBack.BackgroundImage = Resources.Back;
         }
 
         private void pbxSave_MouseEnter(object sender, EventArgs e)

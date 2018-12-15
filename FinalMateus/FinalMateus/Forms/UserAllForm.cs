@@ -31,7 +31,8 @@ namespace FinalMateus.Forms
             {
                 sqlConnect.Open();
 
-                
+
+                //SqlCommand cmd = new SqlCommand("SELECT [USER].ID, [USER].NAME, [USER].PASSWORD, [USER].EMAIL, [USER].ACTIVE, USER_PROFILE.NAME FROM [USER] INNER JOIN USER_PROFILE ON [USER].FK_USERPROFILE = USER_PROFILE.ID;", sqlConnect);
                 SqlCommand cmd = new SqlCommand("SELECT [USER].ID, [USER].NAME, [USER].PASSWORD, [USER].EMAIL, [USER].ACTIVE, USER_PROFILE.NAME FROM [USER] INNER JOIN USER_PROFILE ON [USER].FK_USERPROFILE = USER_PROFILE.ID;", sqlConnect);
                 cmd.ExecuteNonQuery();
 
@@ -39,7 +40,7 @@ namespace FinalMateus.Forms
                 SqlDataAdapter sqlDtAdapter = new SqlDataAdapter(cmd);
                 sqlDtAdapter.Fill(dt);
 
-               dgvUser.DataSource = dt;
+                dgvUser.DataSource = dt;
 
             }
             catch (Exception ex)
@@ -54,11 +55,14 @@ namespace FinalMateus.Forms
 
         private void LittleSearch()
         {
+            
             string optionForm = "UserForm";
             string optionString = "name";
 
             Search search = new Search();
             dgvUser.DataSource = search.SearchFilter(connectionString, tbxSearch.Text, optionString, optionForm);
+
+            
         }
 
         private void ResizeDataGridView()
@@ -71,6 +75,10 @@ namespace FinalMateus.Forms
             dgvUser.Columns["ACTIVE"].DisplayIndex = 4;
             dgvUser.Columns["NAME1"].HeaderText = "Usuario";
             dgvUser.Columns["NAME1"].DisplayIndex = 3;
+
+
+
+
 
             foreach (DataGridViewColumn col in dgvUser.Columns)
             {
@@ -89,25 +97,28 @@ namespace FinalMateus.Forms
         private void pbxSearch_Click(object sender, EventArgs e)
         {
             LittleSearch();
+            
         }
 
         private void pbxClean_Click(object sender, EventArgs e)
         {
             tbxSearch.Text = "";
+            ShowData();
+            ResizeDataGridView();
         }
 
         private void pbxBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            
+
         }
 
         private void pbxAdd_Click(object sender, EventArgs e)
         {
             UserDetailsForm udf = new UserDetailsForm();
             udf.Show();
-            udf.FormClosed += (s, arg) => ShowData();
-            
+            this.Hide();
+
         }
 
         private void pbxEdit_Click(object sender, EventArgs e)
@@ -115,6 +126,7 @@ namespace FinalMateus.Forms
             int idUser = Int32.Parse(dgvUser.SelectedRows[0].Cells[0].Value.ToString());
             UserDetailsForm udf = new UserDetailsForm(idUser);
             udf.Show();
+            this.Close();
         }
 
         private void pbxDelete_Click(object sender, EventArgs e)
@@ -152,32 +164,32 @@ namespace FinalMateus.Forms
 
         private void pbxSearch_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxSearch.BackgroundImage = Resources.SearchChanged;
         }
 
         private void pbxSearch_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxSearch.BackgroundImage = Resources.Search;
         }
 
         private void pbxClean_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxClean.BackgroundImage = Resources.CleanChanged;
         }
 
         private void pbxClean_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxClean.BackgroundImage = Resources.Clean;
         }
 
         private void pbxBack_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxBack.BackgroundImage = Resources.BackColor;
         }
 
         private void pbxBack_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxBack.BackgroundImage = Resources.Back;
         }
 
         private void pbxAdd_MouseEnter(object sender, EventArgs e)
@@ -192,12 +204,12 @@ namespace FinalMateus.Forms
 
         private void pbxEdit_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxEdit.BackgroundImage = Resources.EditChanged;
         }
 
         private void pbxEdit_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxEdit.BackgroundImage = Resources.Edit;
         }
 
         private void pbxDelete_MouseEnter(object sender, EventArgs e)
@@ -215,6 +227,7 @@ namespace FinalMateus.Forms
             if (tbxSearch.Text == "")
             {
                 ShowData();
+
             }
         }
     }

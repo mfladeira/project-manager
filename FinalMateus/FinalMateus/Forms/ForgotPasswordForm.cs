@@ -1,4 +1,5 @@
 ﻿using FinalMateus.Classes;
+using FinalMateus.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -65,6 +66,7 @@ namespace FinalMateus.Forms
                 }
                 finally
                 {
+                    ClearData();
                     sqlConnect.Close();
                 }
             }
@@ -91,6 +93,27 @@ namespace FinalMateus.Forms
                 UpdatePassword();
                 
             }
+        }
+
+        private void pbxBack_MouseEnter(object sender, EventArgs e)
+        {
+            pbxBack.BackgroundImage = Resources.BackColor;
+        }
+
+        private void pbxBack_MouseLeave(object sender, EventArgs e)
+        {
+            pbxBack.BackgroundImage = Resources.Back;
+        }
+
+        private void pbxSend_MouseEnter(object sender, EventArgs e)
+        {
+            pbxSend.BackgroundImage = Resources.forgotchanged;
+        }
+
+        private void pbxSend_MouseLeave(object sender, EventArgs e)
+        {
+            pbxSend.BackgroundImage = Resources.forgot;
+
         }
     }
 }

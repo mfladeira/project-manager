@@ -186,12 +186,12 @@ namespace FinalMateus.Forms
 
         private void pbxBack_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxBack.BackgroundImage = Resources.BackColor;
         }
 
         private void pbxBack_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxBack.BackgroundImage = Resources.Back;
         }
 
         private void pbxDelete_MouseEnter(object sender, EventArgs e)
@@ -206,12 +206,12 @@ namespace FinalMateus.Forms
 
         private void pbxEdit_MouseEnter(object sender, EventArgs e)
         {
-
+            pbxEdit.BackgroundImage = Resources.EditChanged;
         }
 
         private void pbxEdit_MouseLeave(object sender, EventArgs e)
         {
-
+            pbxEdit.BackgroundImage = Resources.Edit;
         }
 
         private void pbxAdd_MouseEnter(object sender, EventArgs e)
