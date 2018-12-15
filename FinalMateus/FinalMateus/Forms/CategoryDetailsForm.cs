@@ -18,10 +18,11 @@ namespace FinalMateus.Forms
         string name = "";
         bool active = false;
         string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
-
-        public CategoryDetailsForm()
+        User userAux;
+        public CategoryDetailsForm(User user)
         {
             InitializeComponent();
+            userAux = user;
             if (string.IsNullOrEmpty(lblId.Text))
             {
                 pbxDelete.Visible = false;
@@ -29,11 +30,11 @@ namespace FinalMateus.Forms
             }
         }
 
-        public CategoryDetailsForm(int idCategory)
+        public CategoryDetailsForm(int idCategory,User user)
         {
 
             InitializeComponent();
-
+            userAux = user;
             lblId.Text = idCategory.ToString(); 
 
             SqlConnection sqlConnect = new SqlConnection(connectionString);
@@ -95,7 +96,7 @@ namespace FinalMateus.Forms
         private void pbxBack_Click(object sender, EventArgs e)
         {       
             
-            CategoryAllForm caf = new CategoryAllForm();
+            CategoryAllForm caf = new CategoryAllForm(userAux);
             caf.Show();
             this.Close();
         }
@@ -121,7 +122,7 @@ namespace FinalMateus.Forms
                     {
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Adicionado com sucesso!");
-                        Log.SaveLog("Categoria Adicionada", DateTime.Now, "Adição");
+                        Log.SaveLog(sqlConnect,"Categoria Adicionada", DateTime.Now, "Adição");
                     }
                     else
                     {
@@ -163,7 +164,7 @@ namespace FinalMateus.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Alterações salvas com sucesso!");
-                    Log.SaveLog("Categoria Editada", DateTime.Now, "Edição");
+                    Log.SaveLog(sqlConnect,"Categoria Editada", DateTime.Now, "Edição");
                 }
                 catch (Exception Ex)
                 {
@@ -173,7 +174,7 @@ namespace FinalMateus.Forms
                 finally
                 {
                     sqlConnect.Close();
-                    CategoryAllForm caf = new CategoryAllForm();
+                    CategoryAllForm caf = new CategoryAllForm(userAux);
                     caf.Show();
                     this.Close();
 
@@ -200,7 +201,7 @@ namespace FinalMateus.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Categoria inativa!");
-                    Log.SaveLog("Categoria Desativada", DateTime.Now, "Excluir");
+                    Log.SaveLog(sqlConnect,"Categoria Desativada", DateTime.Now, "Excluir");
                 }
                 catch (Exception Ex)
                 {

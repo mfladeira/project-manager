@@ -17,10 +17,12 @@ namespace FinalMateus.Forms
     {
         string search = "";
         string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
+        User userAux;
 
-        public CategoryAllForm()
+        public CategoryAllForm(User user)
         {
             InitializeComponent();
+            userAux = user;
             ShowData();
             ResizeDataGridView();
         }
@@ -31,12 +33,23 @@ namespace FinalMateus.Forms
         private void ShowData()
         {
             SqlConnection sqlConnect = new SqlConnection(connectionString);
-
+            
             try
             {
+                SqlCommand cmd;
                 sqlConnect.Open();
+                if(userAux.UserProfile.Name!="Gerente")
+                {
+                   cmd = new SqlCommand("SELECT * FROM CATEGORY WHERE ACTIVE = @active", sqlConnect);
+                    cmd.Parameters.Add(new SqlParameter("@active", true));
 
-                SqlCommand cmd = new SqlCommand("SELECT * FROM CATEGORY", sqlConnect);
+
+                }
+                else
+                {
+                     cmd = new SqlCommand("SELECT * FROM CATEGORy", sqlConnect);
+
+                }
 
                 cmd.ExecuteNonQuery();
 
@@ -104,13 +117,14 @@ namespace FinalMateus.Forms
 
         private void pbxBack_Click(object sender, EventArgs e)
         {
+
             this.Hide();          
         }
 
         private void pbxAdd_Click(object sender, EventArgs e)
         {
             
-            CategoryDetailsForm cdf = new CategoryDetailsForm();
+            CategoryDetailsForm cdf = new CategoryDetailsForm(userAux);
             cdf.Show();
             this.Hide();
         }
@@ -118,7 +132,7 @@ namespace FinalMateus.Forms
         private void pbxEdit_Click(object sender, EventArgs e)
         {
             int idCategory = Int32.Parse(dgvCategory.SelectedRows[0].Cells[0].Value.ToString());
-            CategoryDetailsForm categoryDetails = new CategoryDetailsForm(idCategory);
+            CategoryDetailsForm categoryDetails = new CategoryDetailsForm(idCategory,userAux);
             categoryDetails.Show();
             this.Close();
         }
@@ -142,7 +156,7 @@ namespace FinalMateus.Forms
                 cmd.ExecuteNonQuery();
                 ShowData();
                 MessageBox.Show("Categoria inativa!");
-                Log.SaveLog("Categoria Desativada", DateTime.Now, "Excluir");
+                Log.SaveLog(sqlConnect,"Categoria Desativada", DateTime.Now, "Excluir");
             }
             catch (Exception Ex)
             {

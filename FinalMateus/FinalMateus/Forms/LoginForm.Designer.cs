@@ -46,6 +46,7 @@
             this.tbxPassword.Location = new System.Drawing.Point(283, 196);
             this.tbxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbxPassword.Name = "tbxPassword";
+            this.tbxPassword.PasswordChar = '*';
             this.tbxPassword.Size = new System.Drawing.Size(350, 31);
             this.tbxPassword.TabIndex = 9;
             // 
@@ -117,9 +118,9 @@
             this.pictureBox1.BackgroundImage = global::FinalMateus.Properties.Resources.levle_upspp;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 42);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 55);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(260, 372);
+            this.pictureBox1.Size = new System.Drawing.Size(260, 319);
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 

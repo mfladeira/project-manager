@@ -16,10 +16,12 @@ namespace FinalMateus.Forms
     public partial class ProductAllForm : Form
     {
         string search = "";
+        User userAux;
         string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
-        public ProductAllForm()
+        public ProductAllForm(User user)
         {
             InitializeComponent();
+            userAux = user;
             ShowData();
             ResizeDataGridView();
         }
@@ -29,10 +31,19 @@ namespace FinalMateus.Forms
 
             try
             {
+                SqlCommand cmd;
                 sqlConnect.Open();
+                if(userAux.UserProfile.Name!="Gerente")
+                {
+                    cmd = new SqlCommand("SELECT PRODUCT.ID, PRODUCT.NAME, PRODUCT.ACTIVE, PRODUCT.PRICE, CATEGORY.NAME FROM PRODUCT INNER JOIN CATEGORY ON PRODUCT.FK_PRODUCT = CATEGORY.ID WHERE PRODUCT.ACTIVE = @active", sqlConnect);
+                    cmd.Parameters.Add(new SqlParameter("@active", true));
+                }
 
-               SqlCommand cmd = new SqlCommand("SELECT PRODUCT.ID, PRODUCT.NAME, PRODUCT.ACTIVE, PRODUCT.PRICE, CATEGORY.NAME FROM PRODUCT INNER JOIN CATEGORY ON PRODUCT.FK_PRODUCT = CATEGORY.ID;", sqlConnect);
-                
+                else
+                {
+                    cmd = new SqlCommand("SELECT PRODUCT.ID, PRODUCT.NAME, PRODUCT.ACTIVE, PRODUCT.PRICE, CATEGORY.NAME FROM PRODUCT INNER JOIN CATEGORY ON PRODUCT.FK_PRODUCT = CATEGORY.ID ", sqlConnect);
+
+                }
 
                 cmd.ExecuteNonQuery();
 
@@ -94,6 +105,7 @@ namespace FinalMateus.Forms
         private void pbxSearch_Click(object sender, EventArgs e)
         {
             LittleSearch();
+            ResizeDataGridView();
            
         }
     
@@ -105,7 +117,7 @@ namespace FinalMateus.Forms
 
         private void pbxAdd_Click(object sender, EventArgs e)
         {
-            ProductDetailsForm pdf = new ProductDetailsForm();
+            ProductDetailsForm pdf = new ProductDetailsForm(userAux);
             pdf.Show();
             this.Hide();
         }
@@ -137,7 +149,7 @@ namespace FinalMateus.Forms
                 cmd.ExecuteNonQuery();
                 ShowData();
                 MessageBox.Show("Produto inativo!");
-                Log.SaveLog("Produto Desativado", DateTime.Now, "Excluir");
+                Log.SaveLog(sqlConnect,"Produto Desativado", DateTime.Now, "Excluir");
 
             }
             catch (Exception Ex)
@@ -208,7 +220,7 @@ namespace FinalMateus.Forms
         private void pbxClean1_Click(object sender, EventArgs e)
         {
             tbxSearch.Text = "";
-           
+            ResizeDataGridView();
         }
 
         private void pbxClean1_MouseEnter(object sender, EventArgs e)

@@ -56,7 +56,7 @@ namespace FinalMateus.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Uma nova senha foi enviada para seu e-mail!");
-                    Log.SaveLog("Usuário Editado", DateTime.Now, "Edição");
+                    Log.SaveLog(sqlConnect,"Usuário Editado", DateTime.Now, "Edição");
                 }
                 catch (Exception Ex)
                 {

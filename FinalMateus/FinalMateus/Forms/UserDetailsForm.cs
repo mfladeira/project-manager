@@ -18,7 +18,7 @@ namespace FinalMateus.Forms
         string name = "";
         string email = "";
         string password = "";
-        
+        string confirm = "";
         string profile = "";
         bool active = false;
         List<UserProfile> users = new List<UserProfile>();
@@ -107,7 +107,7 @@ namespace FinalMateus.Forms
             name = tbxName.Text;
             email = tbxEmail.Text;
             password =tbxPassword.Text;
-           
+            confirm = tbxConfirm.Text;
             profile = cmbProfile.Text;
             active = cbxActive.Checked ? true : false;
         }
@@ -117,7 +117,7 @@ namespace FinalMateus.Forms
             tbxName.Text = "";
             tbxEmail.Text = "";
             tbxPassword.Text = "";
-            
+            tbxConfirm.Text = "";
             cmbProfile.Text = "";
             cbxActive.Checked = false;
         }
@@ -141,7 +141,7 @@ namespace FinalMateus.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Usuario inativo!");
-                    Log.SaveLog("Usuario Desativado", DateTime.Now, "Excluir");
+                    Log.SaveLog(sqlConnect,"Usuario Desativado", DateTime.Now, "Excluir");
 
                 }
                 catch (Exception Ex)
@@ -175,7 +175,7 @@ namespace FinalMateus.Forms
                 {
                     GetData();
                     UserProfile up = (UserProfile)cmbProfile.SelectedItem;
-                    User u = new User(name, email, password, up, active);
+                    User u = new User(name, email, password,confirm, up, active);
                     sqlConnect.Open();
                     string sql = "INSERT INTO [USER](NAME, EMAIL, PASSWORD, FK_USERPROFILE, ACTIVE) VALUES (@name, @email, @password, @profile, @active)";
 
@@ -183,7 +183,8 @@ namespace FinalMateus.Forms
 
                     cmd.Parameters.Add(new SqlParameter("@name", u.Name));
                     cmd.Parameters.Add(new SqlParameter("@email", u.Email));
-                    cmd.Parameters.Add(new SqlParameter("@password", u.Password));                 
+                    cmd.Parameters.Add(new SqlParameter("@password", UserHelper.Hash(password)));
+                    cmd.Parameters.Add(new SqlParameter("@email", u.Email));
                     cmd.Parameters.Add(new SqlParameter("@profile", u.UserProfile.Id));
                     cmd.Parameters.Add(new SqlParameter("@active", active));
 
@@ -191,7 +192,7 @@ namespace FinalMateus.Forms
                     {
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Adicionado com sucesso!");
-                        Log.SaveLog("Usuario Adicionado", DateTime.Now, "Adição");
+                        Log.SaveLog(sqlConnect,"Usuario Adicionado", DateTime.Now, "Adição");
                     }
                     else
                     {
@@ -227,7 +228,7 @@ namespace FinalMateus.Forms
 
                     cmd.Parameters.Add(new SqlParameter("@id", lblId.Text));
                     cmd.Parameters.Add(new SqlParameter("@name", name));
-                    cmd.Parameters.Add(new SqlParameter("@password", password));
+                    cmd.Parameters.Add(new SqlParameter("@password", UserHelper.Hash(password)));
                     cmd.Parameters.Add(new SqlParameter("@email", email));  
                     cmd.Parameters.Add(new SqlParameter("@active", active));
                      cmd.Parameters.Add(new SqlParameter("@fk_profile", up.Id));
@@ -236,7 +237,7 @@ namespace FinalMateus.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Altereções salvas com sucesso!");
-                    Log.SaveLog("Usuario Editado", DateTime.Now, "Edição");
+                    Log.SaveLog(sqlConnect,"Usuario Editado", DateTime.Now, "Edição");
                 }
                 catch (Exception Ex)
                 {

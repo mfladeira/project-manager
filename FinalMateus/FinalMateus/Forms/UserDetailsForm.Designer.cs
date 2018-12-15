@@ -43,6 +43,8 @@
             this.pbxDelete = new System.Windows.Forms.PictureBox();
             this.pbxSave = new System.Windows.Forms.PictureBox();
             this.lblId = new System.Windows.Forms.Label();
+            this.tbxConfirm = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSave)).BeginInit();
@@ -99,6 +101,7 @@
             this.tbxPassword.Location = new System.Drawing.Point(87, 161);
             this.tbxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbxPassword.Name = "tbxPassword";
+            this.tbxPassword.PasswordChar = '*';
             this.tbxPassword.Size = new System.Drawing.Size(513, 27);
             this.tbxPassword.TabIndex = 5;
             // 
@@ -121,7 +124,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label5.Location = new System.Drawing.Point(18, 245);
+            this.label5.Location = new System.Drawing.Point(18, 264);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 22);
@@ -132,7 +135,7 @@
             // 
             this.cmbProfile.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbProfile.FormattingEnabled = true;
-            this.cmbProfile.Location = new System.Drawing.Point(87, 243);
+            this.cmbProfile.Location = new System.Drawing.Point(87, 262);
             this.cmbProfile.Margin = new System.Windows.Forms.Padding(4);
             this.cmbProfile.Name = "cmbProfile";
             this.cmbProfile.Size = new System.Drawing.Size(245, 27);
@@ -217,6 +220,26 @@
             this.lblId.TabIndex = 17;
             this.lblId.Visible = false;
             // 
+            // tbxConfirm
+            // 
+            this.tbxConfirm.Location = new System.Drawing.Point(161, 217);
+            this.tbxConfirm.Name = "tbxConfirm";
+            this.tbxConfirm.Size = new System.Drawing.Size(439, 24);
+            this.tbxConfirm.TabIndex = 18;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Calibri", 13F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.label4.Location = new System.Drawing.Point(17, 217);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(137, 22);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Confirmar Senha";
+            // 
             // UserDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -224,6 +247,8 @@
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(641, 520);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.tbxConfirm);
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.pbxBack);
             this.Controls.Add(this.pbxDelete);
@@ -268,5 +293,7 @@
         private System.Windows.Forms.PictureBox pbxDelete;
         private System.Windows.Forms.PictureBox pbxBack;
         private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.TextBox tbxConfirm;
+        private System.Windows.Forms.Label label4;
     }
 }

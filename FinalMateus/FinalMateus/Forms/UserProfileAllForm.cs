@@ -135,7 +135,7 @@ namespace FinalMateus.Forms
                 cmd.ExecuteNonQuery();
                 ShowData();
                 MessageBox.Show("Perfil inativo!");
-                Log.SaveLog("Perfil Desativado", DateTime.Now, "Excluir");
+                Log.SaveLog(sqlConnect,"Perfil Desativado", DateTime.Now, "Excluir");
 
             }
             catch (Exception Ex)

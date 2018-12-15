@@ -68,9 +68,9 @@
             this.pbxBack.BackgroundImage = global::FinalMateus.Properties.Resources.Back;
             this.pbxBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbxBack.Location = new System.Drawing.Point(279, 359);
+            this.pbxBack.Location = new System.Drawing.Point(9, 388);
             this.pbxBack.Name = "pbxBack";
-            this.pbxBack.Size = new System.Drawing.Size(92, 51);
+            this.pbxBack.Size = new System.Drawing.Size(95, 56);
             this.pbxBack.TabIndex = 29;
             this.pbxBack.TabStop = false;
             this.pbxBack.Click += new System.EventHandler(this.pbxBack_Click);
@@ -96,10 +96,10 @@
             this.pictureBox1.BackgroundImage = global::FinalMateus.Properties.Resources.levle_upspp;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 38);
+            this.pictureBox1.Location = new System.Drawing.Point(9, 53);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(260, 372);
+            this.pictureBox1.Size = new System.Drawing.Size(260, 319);
             this.pictureBox1.TabIndex = 30;
             this.pictureBox1.TabStop = false;
             // 

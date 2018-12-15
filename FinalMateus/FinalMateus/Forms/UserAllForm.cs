@@ -69,7 +69,7 @@ namespace FinalMateus.Forms
         {
             dgvUser.Columns["ID"].Visible = false;
             dgvUser.Columns["NAME"].HeaderText = "Nome";
-            dgvUser.Columns["PASSWORD"].HeaderText = "Senha";
+            dgvUser.Columns["PASSWORD"].Visible = false;
             dgvUser.Columns["EMAIL"].HeaderText = "Email";
             dgvUser.Columns["ACTIVE"].HeaderText = "Ativo";
             dgvUser.Columns["ACTIVE"].DisplayIndex = 4;
@@ -148,7 +148,7 @@ namespace FinalMateus.Forms
                 cmd.ExecuteNonQuery();
                 ShowData();
                 MessageBox.Show("Usuario inativo!");
-                Log.SaveLog("Usuario Desativado", DateTime.Now, "Excluir");
+                Log.SaveLog(sqlConnect,"Usuario Desativado", DateTime.Now, "Excluir");
 
             }
             catch (Exception Ex)

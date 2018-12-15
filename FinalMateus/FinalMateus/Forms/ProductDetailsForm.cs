@@ -19,12 +19,14 @@ namespace FinalMateus.Forms
         bool active = false;
         float price = 0;
         string category = "";
+        User userAux;
         List<Category> categories = new List<Category>();
         string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
 
-        public ProductDetailsForm()
+        public ProductDetailsForm(User user)
         {
             InitializeComponent();
+            userAux = user;
             cmbCategory.DisplayMember = "NAME";
             LoadComboBox();
             if (string.IsNullOrEmpty(lblId.Text))
@@ -150,7 +152,7 @@ namespace FinalMateus.Forms
 
         private void pbxBack_Click(object sender, EventArgs e)
         {
-            ProductAllForm paf = new ProductAllForm();
+            ProductAllForm paf = new ProductAllForm(userAux);
             paf.Show();
             this.Hide();
         }
@@ -177,7 +179,7 @@ namespace FinalMateus.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Adicionado com sucesso!");
-                    Log.SaveLog("Produto Adicionado", DateTime.Now, "Adição");
+                    Log.SaveLog(sqlConnect,"Produto Adicionado", DateTime.Now, "Adição");
 
                 }
                 catch (Exception ex)
@@ -217,7 +219,7 @@ namespace FinalMateus.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Altereções salvas com sucesso!");
-                    Log.SaveLog("Produto Adicionado", DateTime.Now, "Edição");
+                    Log.SaveLog(sqlConnect,"Produto Adicionado", DateTime.Now, "Edição");
                 }
                 catch (Exception Ex)
                 {
@@ -227,7 +229,7 @@ namespace FinalMateus.Forms
                 finally
                 {
                     sqlConnect.Close();
-                    ProductAllForm paf = new ProductAllForm();
+                    ProductAllForm paf = new ProductAllForm(userAux);
                     paf.Show();
                     this.Close();
                 }
@@ -283,7 +285,7 @@ namespace FinalMateus.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Produto inativo!");
-                    Log.SaveLog("Produto Desativado", DateTime.Now, "Excluir");
+                    Log.SaveLog(sqlConnect,"Produto Desativado", DateTime.Now, "Excluir");
                 }
                 catch (Exception Ex)
                 {

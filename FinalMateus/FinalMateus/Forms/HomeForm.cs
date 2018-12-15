@@ -15,11 +15,12 @@ namespace FinalMateus.Forms
     public partial class HomeForm : Form
     {
         bool aux = true;
-
+        User userAux;
         public HomeForm(User user)
         {
             InitializeComponent();
-            
+            userAux = user;
+
             if (user.UserProfile.Name != "Gerente")
             {
                 aux = false;
@@ -52,14 +53,15 @@ namespace FinalMateus.Forms
         private void pbxCategory_Click(object sender, EventArgs e)
         {
 
-            CategoryAllForm caf = new CategoryAllForm();
+            CategoryAllForm caf = new CategoryAllForm(userAux);
             caf.Show();
 
         }
 
         private void pbxProduct_Click(object sender, EventArgs e)
         {
-            ProductAllForm paf = new ProductAllForm();
+
+            ProductAllForm paf = new ProductAllForm(userAux);
             paf.Show();
         }
 

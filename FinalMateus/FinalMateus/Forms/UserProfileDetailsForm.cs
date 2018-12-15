@@ -118,7 +118,7 @@ namespace FinalMateus.Forms
                     {
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Adicionado com sucesso!");
-                        Log.SaveLog("Perfil adicionado", DateTime.Now, "Adição");
+                        Log.SaveLog(sqlConnect,"Perfil adicionado", DateTime.Now, "Adição");
                     }
                     else
                     {
@@ -159,7 +159,7 @@ namespace FinalMateus.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Alterações salvas com sucesso!");
-                    Log.SaveLog("Perfil Editado", DateTime.Now, "Edição");
+                    Log.SaveLog(sqlConnect,"Perfil Editado", DateTime.Now, "Edição");
                 }
                 catch (Exception Ex)
                 {
@@ -195,7 +195,7 @@ namespace FinalMateus.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Perfil inativo!");
-                    Log.SaveLog("Perfil Desativadao", DateTime.Now, "Excluir");
+                    Log.SaveLog(sqlConnect,"Perfil Desativadao", DateTime.Now, "Excluir");
 
                 }
                 catch (Exception Ex)
